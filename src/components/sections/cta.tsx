@@ -13,10 +13,10 @@ export default function Cta() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button size="lg" asChild variant="secondary">
-            <Link href="#">Enroll Now</Link>
+            <Link href="#contact">Enroll Now</Link>
           </Button>
           <Button size="lg" asChild variant="outline" className="bg-accent text-accent-foreground border-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground">
-            <Link href="#">Book a Free Demo</Link>
+            <Link href="#contact">Book a Free Demo</Link>
           </Button>
         </div>
       </div>

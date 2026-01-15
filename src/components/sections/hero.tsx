@@ -16,10 +16,10 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="#">Enroll Now</Link>
+              <Link href="#contact">Enroll Now</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="#">Book Free Demo</Link>
+              <Link href="#contact">Book Free Demo</Link>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
