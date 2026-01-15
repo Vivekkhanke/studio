@@ -1,7 +1,8 @@
 "use server"
 
 import * as z from "zod"
-import { Resend } from 'resend';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { JWT } from 'google-auth-library';
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -21,24 +22,32 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
     }
   }
 
-  // NOTE: This is a placeholder for the Resend API key.
-  // You should replace this with your actual Resend API key stored in environment variables.
-  const resend = new Resend(process.env.RESEND_API_KEY);
   const { fullName, email, mobile, subject, message } = validatedFields.data;
 
   try {
-    await resend.emails.send({
-      from: 'onboarding@resend.dev', // This must be a verified domain on Resend
-      to: 'vickykhanke123@gmail.com',
-      subject: `New Query: ${subject}`,
-      html: `<p>Name: ${fullName}</p>
-             <p>Email: ${email}</p>
-             ${mobile ? `<p>Mobile: ${mobile}</p>` : ''}
-             <p>Message: ${message}</p>`
+    const serviceAccountAuth = new JWT({
+      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
-    return { success: true, message: "Message sent successfully!" };
+
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID!, serviceAccountAuth);
+
+    await doc.loadInfo(); 
+    const sheet = doc.sheetsByIndex[0];
+
+    await sheet.addRow({ 
+      FullName: fullName, 
+      Email: email,
+      Mobile: mobile || '',
+      Subject: subject,
+      Message: message,
+      Timestamp: new Date().toISOString()
+    });
+
+    return { success: true, message: "Your query has been submitted successfully!" };
   } catch (error) {
-    console.error("Email sending error:", error);
-    return { success: false, message: "Failed to send email." };
+    console.error("Google Sheet writing error:", error);
+    return { success: false, message: "Failed to save your query. Please try again later." };
   }
 }
