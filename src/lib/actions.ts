@@ -1,6 +1,7 @@
 "use server"
 
 import * as z from "zod"
+import { Resend } from 'resend';
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -20,33 +21,24 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
     }
   }
 
-  // Simulate network delay and email sending
-  await new Promise(res => setTimeout(res, 2000))
-  
-  console.log("Form submitted:", validatedFields.data);
+  // NOTE: This is a placeholder for the Resend API key.
+  // You should replace this with your actual Resend API key stored in environment variables.
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const { fullName, email, mobile, subject, message } = validatedFields.data;
 
-  // In a real application, you would integrate with an email service like Resend here.
-  // For example:
-  //
-  // import { Resend } from 'resend';
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  //
-  // try {
-  //   await resend.emails.send({
-  //     from: 'onboarding@resend.dev',
-  //     to: 'vickykhanke123@gmail.com',
-  //     subject: `New Query: ${validatedFields.data.subject}`,
-  //     html: `<p>Name: ${validatedFields.data.fullName}</p>
-  //            <p>Email: ${validatedFields.data.email}</p>
-  //            <p>Message: ${validatedFields.data.message}</p>`
-  //   });
-  //   return { success: true, message: "Message sent successfully!" };
-  // } catch (error) {
-  //   return { success: false, message: "Failed to send email." };
-  // }
-
-  return {
-    success: true,
-    message: "Your query has been submitted successfully!",
+  try {
+    await resend.emails.send({
+      from: 'onboarding@resend.dev', // This must be a verified domain on Resend
+      to: 'vickykhanke123@gmail.com',
+      subject: `New Query: ${subject}`,
+      html: `<p>Name: ${fullName}</p>
+             <p>Email: ${email}</p>
+             ${mobile ? `<p>Mobile: ${mobile}</p>` : ''}
+             <p>Message: ${message}</p>`
+    });
+    return { success: true, message: "Message sent successfully!" };
+  } catch (error) {
+    console.error("Email sending error:", error);
+    return { success: false, message: "Failed to send email." };
   }
 }
