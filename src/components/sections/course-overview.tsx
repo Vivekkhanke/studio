@@ -38,13 +38,10 @@ export default function CourseOverview() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    <Monitor className="h-6 w-6 text-accent" />
-                    <Users className="h-6 w-6 text-accent" />
-                  </div>
+                  <Monitor className="h-6 w-6 text-accent" />
                   <div>
                     <p className="font-semibold">Mode</p>
-                    <p className="text-foreground/80">Online & Classroom</p>
+                    <p className="text-foreground/80">Online</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
