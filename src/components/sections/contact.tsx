@@ -185,7 +185,7 @@ export default function Contact() {
                         <Mail className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                         <div>
                             <h3 className="font-semibold">Email Us</h3>
-                            <a href="mailto:support@sqlaccelerator.com" className="text-foreground/80 hover:text-primary">support@sqlaccelerator.com</a>
+                            <a href="mailto:vickykhanke123@gmail.com" className="text-foreground/80 hover:text-primary">vickykhanke123@gmail.com</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">

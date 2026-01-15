@@ -34,7 +34,7 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
   // try {
   //   await resend.emails.send({
   //     from: 'onboarding@resend.dev',
-  //     to: 'your-email@example.com',
+  //     to: 'vickykhanke123@gmail.com',
   //     subject: `New Query: ${validatedFields.data.subject}`,
   //     html: `<p>Name: ${validatedFields.data.fullName}</p>
   //            <p>Email: ${validatedFields.data.email}</p>
