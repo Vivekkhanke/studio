@@ -12,7 +12,7 @@ export default function Quote() {
             </p>
           </blockquote>
           <footer className="mt-6 text-sm uppercase tracking-wider text-primary-foreground/70">
-            - A Data Enthusiast
+            - Vivek khanke
           </footer>
         </div>
       </div>
