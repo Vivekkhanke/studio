@@ -22,6 +22,14 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
     }
   }
 
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+    console.error("Google Sheets API credentials are not set in environment variables.");
+    return { 
+      success: false, 
+      message: "The application is not configured to save your query. Please contact the administrator." 
+    };
+  }
+
   const { fullName, email, mobile, subject, message } = validatedFields.data;
 
   try {
