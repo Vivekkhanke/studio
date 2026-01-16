@@ -31,7 +31,7 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID!, serviceAccountAuth);
+    const doc = new GoogleSpreadsheet('1gO0B3uxYFquWPNcNZHvseEUOSUMw7t4xQAVgjoHaDh4', serviceAccountAuth);
 
     await doc.loadInfo(); 
     const sheet = doc.sheetsByIndex[0];
