@@ -23,15 +23,15 @@ export default function Hero() {
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
-              <Rocket className="mr-2 h-4 w-4 text-accent" />
+            <Badge variant="default" className="px-4 py-2 text-sm transition-transform hover:scale-105">
+              <Rocket className="mr-2 h-4 w-4" />
               45 Days Course
             </Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
+            <Badge variant="secondary" className="px-4 py-2 text-sm transition-transform hover:scale-105">
               <Medal className="mr-2 h-4 w-4 text-accent" />
               Mini Project Included
             </Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
+            <Badge variant="secondary" className="px-4 py-2 text-sm transition-transform hover:scale-105">
               <Gem className="mr-2 h-4 w-4 text-accent" />
               Affordable Fee
             </Badge>

@@ -41,8 +41,8 @@ export default function WhyChooseUs() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-start gap-4">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+            <div key={index} className="group flex items-start gap-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground transition-transform duration-300 group-hover:scale-110">
                 <benefit.icon className="h-6 w-6" />
               </div>
               <div>

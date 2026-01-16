@@ -26,7 +26,7 @@ export default function Instructor() {
                   data-ai-hint={instructorImage.imageHint}
                   width={200}
                   height={200}
-                  className="rounded-full border-4 border-card object-cover shadow-lg"
+                  className="rounded-full border-4 border-card object-cover shadow-lg transition-transform duration-300 hover:scale-105"
                 />
               )}
             </div>
