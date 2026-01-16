@@ -10,6 +10,12 @@ const formSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters.').max(500),
 });
 
+const subjectMappings: { [key: string]: string } = {
+  'enrollment': 'SQL Accelerator | Enrollment',
+  'course-details': 'SQL Accelerator | Course Details',
+  'other': 'SQL Accelerator | Query',
+};
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -42,11 +48,12 @@ export async function POST(req: Request) {
 
     const {fullName, email, mobile, subject, message} = validatedFields.data;
     const recipientEmail = 'vickykhanke123@gmail.com';
+    const emailSubject = subjectMappings[subject] || 'SQL Accelerator | New Query';
 
     const mailOptions = {
       from: SMTP_EMAIL,
       to: recipientEmail,
-      subject: `New Contact Form Submission: ${subject}`,
+      subject: emailSubject,
       html: `
         <h2>New Query from SQL Accelerator Website</h2>
         <p><strong>Full Name:</strong> ${fullName}</p>
