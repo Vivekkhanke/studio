@@ -1,8 +1,7 @@
 'use server';
 
-import { addDocumentNonBlocking, getSdks } from '@/firebase';
 import { firebaseConfig } from '@/firebase/config';
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import * as z from 'zod';
 import { v4 as uuidv4 } from 'uuid';
@@ -26,7 +25,10 @@ export async function submitContactForm(values: z.infer<typeof formSchema>) {
   }
 
   const { fullName, email, mobile, subject, message } = validatedFields.data;
-  const { firestore } = getSdks(initializeApp(firebaseConfig));
+  
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const firestore = getFirestore(app);
+
   const contactQueryId = uuidv4();
 
   try {
