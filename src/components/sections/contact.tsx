@@ -136,7 +136,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Mobile Number <span className="text-destructive">*</span></FormLabel>
                         <FormControl>
-                          <Input placeholder="e.g. 9876543210" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
