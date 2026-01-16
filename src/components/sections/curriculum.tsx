@@ -150,11 +150,24 @@ const curriculumData = [
         },
     },
     {
-        emoji: "🧪",
-        title: "Module 11: Mini Project (Hands-on)",
+        emoji: "📊",
+        title: "Module 11: SQL for BI & Analytics",
         content: {
         learn: [
-            "Project Example: Retail / E-commerce project",
+            "SQL for Power BI / Tableau",
+            "Query folding basics",
+            "Creating analytical datasets",
+            "SQL best practices for dashboards",
+        ],
+        outcome: "Become job-ready for Data Analyst / BI roles",
+        },
+    },
+    {
+        emoji: "🧪",
+        title: "Module 12: Mini Project (Hands-on)",
+        content: {
+        learn: [
+            "Project Example: Retail / E-commerce (Kroger-like project)",
             "Sales analysis",
             "Customer behavior analysis",
             "Store-wise performance",
@@ -163,6 +176,7 @@ const curriculumData = [
         },
     },
 ];
+
 
 export default function Curriculum() {
   return (
@@ -178,42 +192,48 @@ export default function Curriculum() {
         </div>
         <div className="mt-12 mx-auto max-w-4xl">
           <Accordion type="single" collapsible className="w-full rounded-lg border bg-card p-2 shadow-sm">
-            <div className="transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 rounded-md">
-                <AccordionItem value="full-curriculum" className="border-b-0">
-                    <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline">
-                        <span className="flex items-center gap-4">
-                            <span className="text-2xl">📚</span>
-                            View Full Curriculum
-                        </span>
-                    </AccordionTrigger>
-                    <AccordionContent className="overflow-hidden text-base transition-all">
-                        <div className="space-y-4 pt-4 pb-4 px-4">
-                            {curriculumData.map((item, index) => (
-                                <div key={index} className="py-4 border-b last:border-b-0">
-                                    <h3 className="flex items-center gap-4 text-lg font-semibold">
-                                        <span className="text-2xl">{item.emoji}</span>
-                                        {item.title}
-                                    </h3>
-                                    <div className="space-y-4 pt-4 pl-12">
-                                        <div>
-                                            <h4 className="font-semibold text-primary text-sm">What you will learn</h4>
-                                            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80 text-sm">
-                                            {item.content.learn.map((point, i) => (
-                                                <li key={i}>{point}</li>
-                                            ))}
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-primary text-sm">Outcome</h4>
-                                            <p className="mt-2 text-foreground/80 text-sm">{item.content.outcome}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </AccordionContent>
-                </AccordionItem>
-            </div>
+            <AccordionItem value="full-curriculum" className="border-b-0">
+                <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline data-[state=open]:border-b">
+                    <span className="flex items-center gap-4">
+                        <span className="text-2xl">📚</span>
+                        View Full Curriculum
+                    </span>
+                </AccordionTrigger>
+                <AccordionContent className="overflow-hidden text-base transition-all">
+                    <div className="pt-4 px-2">
+                      <Accordion type="multiple" className="w-full space-y-2">
+                        {curriculumData.map((item, index) => (
+                          <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 rounded-md border">
+                            <AccordionItem value={`item-${index}`} className="border-b-0">
+                              <AccordionTrigger className="py-4 px-4 text-left font-semibold transition-all hover:no-underline">
+                                <h3 className="flex w-full items-center gap-4 text-lg text-left">
+                                    <span className="text-2xl">{item.emoji}</span>
+                                    {item.title}
+                                </h3>
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                  <div className="space-y-4 pt-4 pb-4 px-4 border-t">
+                                      <div>
+                                          <h4 className="font-semibold text-primary text-sm">What you will learn</h4>
+                                          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80 text-sm">
+                                          {item.content.learn.map((point, i) => (
+                                              <li key={i}>{point}</li>
+                                          ))}
+                                          </ul>
+                                      </div>
+                                      <div>
+                                          <h4 className="font-semibold text-primary text-sm">Outcome</h4>
+                                          <p className="mt-2 text-foreground/80 text-sm">{item.content.outcome}</p>
+                                      </div>
+                                  </div>
+                              </AccordionContent>
+                            </AccordionItem>
+                          </div>
+                        ))}
+                      </Accordion>
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </div>
