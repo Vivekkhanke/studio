@@ -46,9 +46,6 @@ export default function Navigation() {
             ))}
           </nav>
           <div className="hidden items-center gap-2 md:flex">
-            <Button asChild variant="outline">
-              <Link href="#contact">Book Free Demo</Link>
-            </Button>
             <Button asChild>
               <Link href="#contact">Enroll Now</Link>
             </Button>
@@ -79,9 +76,6 @@ export default function Navigation() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="outline">
-            <Link href="#contact">Book Free Demo</Link>
-          </Button>
           <Button asChild>
             <Link href="#contact">Enroll Now</Link>
           </Button>
@@ -117,11 +111,6 @@ export default function Navigation() {
                   ))}
                 </nav>
                 <div className="mt-auto flex flex-col gap-2 border-t p-4">
-                  <SheetClose asChild>
-                    <Button asChild variant="outline" size="lg">
-                      <Link href="#contact">Book Free Demo</Link>
-                    </Button>
-                  </SheetClose>
                   <SheetClose asChild>
                     <Button asChild size="lg">
                       <Link href="#contact">Enroll Now</Link>

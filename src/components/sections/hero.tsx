@@ -14,12 +14,9 @@ export default function Hero() {
           <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
             Join our intensive 45-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild>
               <Link href="#contact">Enroll Now</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="#contact">Book Free Demo</Link>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">

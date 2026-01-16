@@ -33,7 +33,7 @@ export default function CourseOverview() {
                 <div className="flex items-center gap-3">
                   <Calendar className="h-6 w-6 text-accent" />
                   <div>
-                    <p className="font-semibold">Next Demo</p>
+                    <p className="font-semibold">Batch Starts</p>
                     <p className="text-foreground/80">1st February</p>
                   </div>
                 </div>

@@ -15,9 +15,6 @@ export default function Cta() {
           <Button size="lg" asChild variant="secondary">
             <Link href="#contact">Enroll Now</Link>
           </Button>
-          <Button size="lg" asChild variant="outline" className="bg-accent text-accent-foreground border-accent-foreground hover:bg-accent-foreground/10 hover:text-accent-foreground">
-            <Link href="#contact">Book a Free Demo</Link>
-          </Button>
         </div>
       </div>
     </section>
