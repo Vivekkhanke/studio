@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "ContactQuery": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactQuery",
+      "type": "object",
+      "description": "Represents a contact query submitted by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact query."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "The full name of the person submitting the query."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the person submitting the query.",
+          "format": "email"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "The mobile number of the person submitting the query (optional)."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the query."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content of the query."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the query was submitted.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "fullName",
+        "email",
+        "subject",
+        "message",
+        "submissionDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/contact_queries/{contactQueryId}",
+        "definition": {
+          "entityName": "ContactQuery",
+          "schema": {
+            "$ref": "#/backend/entities/ContactQuery"
+          },
+          "description": "Stores contact queries submitted by users. The `contactQueryId` is a unique identifier for each query.",
+          "params": [
+            {
+              "name": "contactQueryId",
+              "description": "Unique identifier for the contact query."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to store contact queries submitted through the SQL Accelerator website. A single collection, `contact_queries`, is used to store all contact query documents. Each document represents a single query and contains fields like `fullName`, `email`, `subject`, `message`, and `submissionDate`. An `id` field is used as a unique document identifier, and its auto-generated to uniquely identify the request and mitigate security risk.\n\n**Authorization Independence:** Since there are no user-specific subcollections or parent-child relationships, authorization independence is inherently achieved. No denormalization is required because access control is not dependent on parent document data. All contact queries have the same access requirements, so structural segregation is also simple.\n\n**QAPs (Rules are not Filters):** The structure allows for secure `list` operations. Because there is only one collection, no filtering on the client-side is required. All contact queries are treated the same, so rules can limit access to the entire collection. There are no nested collections, so access will be granted to all documents in the contact_queries if criteria matches."
+  }
+}
