@@ -1,12 +1,9 @@
 import Image from "next/image"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin, Briefcase, Star } from "lucide-react"
 import Link from "next/link"
 
 export default function Instructor() {
-  const instructorImage = PlaceHolderImages.find(p => p.id === "instructor-avatar")
-
   return (
     <section id="instructor" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -19,16 +16,14 @@ export default function Instructor() {
         <div className="mt-12 flex justify-center">
           <Card className="w-full max-w-4xl overflow-hidden md:flex">
             <div className="md:w-1/3 flex items-center justify-center bg-primary/5 p-8">
-              {instructorImage && (
-                <Image
-                  src={instructorImage.imageUrl}
-                  alt={instructorImage.description}
-                  data-ai-hint={instructorImage.imageHint}
-                  width={200}
-                  height={200}
-                  className="rounded-full border-4 border-card object-cover shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              )}
+              <Image
+                src="/image.png"
+                alt="A professional portrait of the instructor, Vivek Khanke."
+                data-ai-hint="professional portrait"
+                width={200}
+                height={200}
+                className="rounded-full border-4 border-card object-cover shadow-lg transition-transform duration-300 hover:scale-105"
+              />
             </div>
             <div className="md:w-2/3">
               <CardContent className="p-8">

@@ -1,12 +1,6 @@
 {
   "placeholderImages": [
     {
-      "id": "instructor-avatar",
-      "description": "A professional portrait of the instructor, Vivek Khanke.",
-      "imageUrl": "/instructor-photo.png",
-      "imageHint": "professional portrait"
-    },
-    {
       "id": "project-showcase",
       "description": "An abstract representation of data analysis and dashboards for the mini project section.",
       "imageUrl": "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1080",
