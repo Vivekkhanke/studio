@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { submitContactForm } from "@/lib/actions"
 import { useState } from "react"
 
 const formSchema = z.object({
@@ -52,22 +51,39 @@ export default function Contact() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
-    const result = await submitContactForm(values)
-    setIsSubmitting(false)
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-    if (result.success) {
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. We'll get back to you shortly.",
-      })
-      form.reset()
-    } else {
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thanks for reaching out. We'll get back to you shortly.",
+        });
+        form.reset();
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Something went wrong.",
+          description: result.message || "Please try again later.",
+        });
+      }
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Something went wrong.",
-        description: result.message || "Please try again later.",
-      })
+        description: "An unexpected error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
