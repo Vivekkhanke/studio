@@ -1,64 +1,9 @@
-/**
- * Core Philosophy: This ruleset implements a secure "write-only mailbox" pattern for a public contact form.
- * The primary goal is to allow any user, authenticated or not, to submit a new contact query. To protect the
- * privacy of submitters, all read, update, and delete operations are strictly forbidden. Once a query is
- * submitted, it is immutable from the client-side and can only be accessed by a trusted server environment
- * with admin credentials.
- *
- * Data Structure: The database contains a single top-level collection named `contact_queries`. Each
- * document within this collection represents an individual query submitted by a user.
- *
- * Key Security Decisions:
- * - Public Create: Anyone can create a new document in the `contact_queries` collection. This is
- *   necessary for the public-facing contact form to function. Basic data presence is validated to
- *   prevent the creation of empty or malformed documents.
- * - No Reads: All `get` and `list` operations are denied to prevent any user from accessing or discovering
- *   potentially sensitive Personally Identifiable Information (PII) submitted by others.
- * - Immutability: All `update` and `delete` operations are denied. This ensures that a submitted
- *   query cannot be altered or removed after the fact from the client.
- *
- * Denormalization for Authorization: Not applicable. Authorization is not based on user ownership or
- * relationships with other documents.
- *
- * Structural Segregation: Not applicable. There is only one type of data with a single, uniform
- * security policy.
- */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // Helper Functions
-
-    /**
-     * Ensures the request is from an authenticated user.
-     */
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    /**
-     * Performs a basic check to ensure a new contact query contains essential fields.
-     * This prevents spamming with empty documents but remains flexible on data types.
-     */
-    function hasRequiredContactFields() {
-      let data = request.resource.data;
-      return data.keys().hasAll(['id', 'fullName', 'email', 'subject', 'message', 'submissionDate']);
-    }
-
-    /**
-     * @description Allows anyone to submit (create) a contact query but denies all read, update, or delete access.
-     * @path /contact_queries/{contactQueryId}
-     * @allow (create) An anonymous user submitting a new contact form with all required fields.
-     * @deny (get) Any user, authenticated or not, trying to read a specific query by its ID.
-     * @deny (list) Any user trying to see a list of all submitted queries.
-     * @principle Implements a 'write-only mailbox' pattern to collect data publicly while protecting submitter privacy.
-     */
     match /contact_queries/{contactQueryId} {
-      allow get: if false;
-      allow list: if false;
-      allow create: if hasRequiredContactFields() && request.resource.data.id == contactQueryId;
-      allow update: if false;
-      allow delete: if false;
+      allow read, update, delete: if false;
+      allow create: if request.resource.data.id == contactQueryId;
     }
   }
 }

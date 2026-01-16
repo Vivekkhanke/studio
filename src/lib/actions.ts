@@ -1,61 +1,51 @@
-"use server"
+'use server';
 
-import * as z from "zod"
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { JWT } from 'google-auth-library';
+import { addDocumentNonBlocking, getSdks } from '@/firebase';
+import { firebaseConfig } from '@/firebase/config';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import * as z from 'zod';
+import { v4 as uuidv4 } from 'uuid';
 
 const formSchema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
+  fullName: z.string().min(2, 'Full name must be at least 2 characters.'),
+  email: z.string().email('Please enter a valid email address.'),
   mobile: z.string().optional(),
-  subject: z.string().min(1, "Please select a subject."),
-  message: z.string().min(10, "Message must be at least 10 characters.").max(500),
-})
+  subject: z.string().min(1, 'Please select a subject.'),
+  message: z.string().min(10, 'Message must be at least 10 characters.').max(500),
+});
 
 export async function submitContactForm(values: z.infer<typeof formSchema>) {
-  const validatedFields = formSchema.safeParse(values)
+  const validatedFields = formSchema.safeParse(values);
 
   if (!validatedFields.success) {
     return {
       success: false,
-      message: "Invalid form data. Please check your inputs.",
-    }
-  }
-
-  if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
-    console.error("Google Sheets API credentials are not set in environment variables.");
-    return { 
-      success: false, 
-      message: "The application is not configured to save your query. Please contact the administrator." 
+      message: 'Invalid form data. Please check your inputs.',
     };
   }
 
   const { fullName, email, mobile, subject, message } = validatedFields.data;
+  const { firestore } = getSdks(initializeApp(firebaseConfig));
+  const contactQueryId = uuidv4();
 
   try {
-    const serviceAccountAuth = new JWT({
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    const contactQueryRef = doc(firestore, 'contact_queries', contactQueryId);
+    // The `setDocumentNonBlocking` function is not available in server actions.
+    // We will use the `setDoc` function directly here.
+    await setDoc(contactQueryRef, {
+      id: contactQueryId,
+      fullName,
+      email,
+      mobile: mobile || '',
+      subject,
+      message,
+      submissionDate: new Date().toISOString(),
     });
 
-    const doc = new GoogleSpreadsheet('1gO0B3uxYFquWPNcNZHvseEUOSUMw7t4xQAVgjoHaDh4', serviceAccountAuth);
-
-    await doc.loadInfo(); 
-    const sheet = doc.sheetsByIndex[0];
-
-    await sheet.addRow({ 
-      FullName: fullName, 
-      Email: email,
-      Mobile: mobile || '',
-      Subject: subject,
-      Message: message,
-      Timestamp: new Date().toISOString()
-    });
-
-    return { success: true, message: "Your query has been submitted successfully!" };
+    return { success: true, message: 'Your query has been submitted successfully!' };
   } catch (error) {
-    console.error("Google Sheet writing error:", error);
-    return { success: false, message: "Failed to save your query. Please try again later." };
+    console.error('Firestore writing error:', error);
+    return { success: false, message: 'Failed to save your query. Please try again later.' };
   }
 }
