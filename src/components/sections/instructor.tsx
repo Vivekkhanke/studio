@@ -39,7 +39,7 @@ export default function Instructor() {
                    </div>
                 </div>
                 <div className="mt-6">
-                  <Link href="#" className="inline-flex items-center gap-2 text-primary transition-colors hover:text-accent">
+                  <Link href="https://www.linkedin.com/in/vivek-khanke/" className="inline-flex items-center gap-2 text-primary transition-colors hover:text-accent">
                     <Linkedin className="h-5 w-5" />
                     Connect on LinkedIn
                   </Link>
