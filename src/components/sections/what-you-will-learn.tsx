@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Database, Search, Link2, Layers, Sigma, FunctionSquare, Clock, Gauge } from "lucide-react"
 
 const topics = [
@@ -29,7 +29,7 @@ export default function WhatYouWillLearn() {
                 <topic.icon className="h-8 w-8" />
               </div>
               <CardHeader className="p-0">
-                <CardTitle className="font-headline text-xl">{topic.title}</CardTitle>
+                <h3 className="font-headline text-xl font-semibold leading-none tracking-tight">{topic.title}</h3>
               </CardHeader>
               <CardContent className="p-0 mt-2">
                 <p className="text-foreground/70">{topic.description}</p>
