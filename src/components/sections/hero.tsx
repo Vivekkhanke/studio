@@ -12,7 +12,7 @@ export default function Hero() {
             Master SQL from Scratch with Real-World Projects
           </h1>
           <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
-            Join our intensive 45-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
+            Join our intensive 30-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
@@ -20,15 +20,15 @@ export default function Hero() {
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform hover:scale-105">
+            <Badge variant="primary" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Rocket className="mr-2 h-4 w-4" />
-              45 Days Course
+              30 Days Course
             </Badge>
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform hover:scale-105">
+            <Badge variant="primary" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Medal className="mr-2 h-4 w-4" />
               Mini Project Included
             </Badge>
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform hover:scale-105">
+            <Badge variant="primary" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Gem className="mr-2 h-4 w-4" />
               Affordable Fee
             </Badge>

@@ -7,15 +7,15 @@ const siteUrl = 'https://sql-accelerator-demo.web.app';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SQL Accelerator | Master SQL From Scratch (45-Day Course)',
+    default: 'SQL Accelerator | Master SQL From Scratch (30-Day Course)',
     template: '%s | SQL Accelerator',
   },
-  description: 'Go from beginner to job-ready with our 45-day intensive SQL course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.',
+  description: 'Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.',
   keywords: ['SQL course', 'learn SQL', 'SQL training', 'data analysis', 'SQL projects', 'database queries', 'query optimization', 'Vivek Khanke', 'beginner SQL'],
   
   openGraph: {
     title: 'SQL Accelerator | Master SQL From Scratch',
-    description: 'Join our 45-day intensive SQL course and go from beginner to job-ready with hands-on, real-world projects.',
+    description: 'Join our 30-day intensive SQL course and go from beginner to job-ready with hands-on, real-world projects.',
     url: siteUrl,
     siteName: 'SQL Accelerator',
     images: [
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'SQL Accelerator | Master SQL From Scratch (45-Day Course)',
-    description: 'Go from beginner to job-ready with our 45-day intensive SQL course. Gain hands-on mastery through real-world projects.',
+    title: 'SQL Accelerator | Master SQL From Scratch (30-Day Course)',
+    description: 'Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects.',
     images: ['https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1200&h=630'],
   },
 

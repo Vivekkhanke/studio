@@ -14,7 +14,7 @@ export default function CourseOverview() {
           </p>
         </div>
         <div className="mt-12 flex justify-center">
-          <Card className="w-full max-w-2xl overflow-hidden shadow-2xl transition-all hover:shadow-accent/20 hover:-translate-y-2">
+          <Card className="w-full max-w-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-2">
             <CardHeader className="bg-primary p-6 text-primary-foreground">
               <CardTitle className="font-headline text-2xl">SQL Accelerator: Zero to Hero</CardTitle>
               <CardDescription className="text-primary-foreground/80">
@@ -27,7 +27,7 @@ export default function CourseOverview() {
                   <Clock className="h-6 w-6 text-accent" />
                   <div>
                     <p className="font-semibold">Duration</p>
-                    <p className="text-foreground/80">45 Days</p>
+                    <p className="text-foreground/80">30 Days</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
