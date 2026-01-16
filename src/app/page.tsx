@@ -1,7 +1,7 @@
 import Navigation from '@/components/sections/navigation';
 import Hero from '@/components/sections/hero';
 import CourseOverview from '@/components/sections/course-overview';
-import WhatYouWillLearn from '@/components/sections/what-you-will-learn';
+import Curriculum from '@/components/sections/curriculum';
 import MiniProject from '@/components/sections/mini-project';
 import Quote from '@/components/sections/quote';
 import WhyChooseUs from '@/components/sections/why-choose-us';
@@ -17,7 +17,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <CourseOverview />
-        <WhatYouWillLearn />
+        <Curriculum />
         <MiniProject />
         <Quote />
         <WhyChooseUs />
