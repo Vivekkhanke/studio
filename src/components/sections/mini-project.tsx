@@ -57,7 +57,7 @@ export default function MiniProject() {
                 data-ai-hint={projectImage.imageHint}
                 width={600}
                 height={400}
-                className="rounded-lg object-cover shadow-2xl transition-transform duration-300 hover:scale-105"
+                className="rounded-lg object-cover shadow-2xl transition-transform duration-300 hover:scale-105 animate-float"
               />
             )}
           </div>

@@ -12,7 +12,7 @@ export default function Cta() {
           Don't wait to unlock the power of data. Enroll now and take the first step towards a rewarding career in tech.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button size="lg" asChild variant="secondary" className="transition-transform duration-300 ease-in-out hover:scale-105">
+          <Button size="lg" asChild variant="secondary" className="transition-transform duration-300 ease-in-out hover:scale-105 animate-float">
             <Link href="#contact">Enroll Now</Link>
           </Button>
         </div>
