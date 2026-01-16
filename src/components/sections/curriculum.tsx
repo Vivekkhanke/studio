@@ -179,30 +179,32 @@ export default function Curriculum() {
         <div className="mt-12 mx-auto max-w-4xl">
           <Accordion type="single" collapsible className="w-full rounded-lg border bg-card p-2 shadow-sm">
             {curriculumData.map((item, index) => (
-              <AccordionItem value={`item-${index}`} key={index} className="border-b last:border-b-0">
-                <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:bg-muted/50 hover:no-underline rounded-md">
-                  <span className="flex items-center gap-4">
-                    <span className="text-2xl">{item.emoji}</span>
-                    {item.title}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="overflow-hidden text-base transition-all">
-                  <div className="space-y-6 pt-4 pb-4 pl-16 pr-4">
-                    <div>
-                      <h4 className="font-semibold text-primary">What you will learn</h4>
-                      <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80">
-                        {item.content.learn.map((point, i) => (
-                          <li key={i}>{point}</li>
-                        ))}
-                      </ul>
+              <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 rounded-md">
+                <AccordionItem value={`item-${index}`} className="border-b last:border-b-0">
+                  <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline">
+                    <span className="flex items-center gap-4">
+                      <span className="text-2xl">{item.emoji}</span>
+                      {item.title}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="overflow-hidden text-base transition-all">
+                    <div className="space-y-4 pt-4 pb-4 pl-16 pr-4">
+                      <div>
+                        <h4 className="font-semibold text-primary text-sm">What you will learn</h4>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80 text-sm">
+                          {item.content.learn.map((point, i) => (
+                            <li key={i}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary text-sm">Outcome</h4>
+                        <p className="mt-2 text-foreground/80 text-sm">{item.content.outcome}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">Outcome</h4>
-                      <p className="mt-2 text-foreground/80">{item.content.outcome}</p>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                  </AccordionContent>
+                </AccordionItem>
+              </div>
             ))}
           </Accordion>
         </div>
