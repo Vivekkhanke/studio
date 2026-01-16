@@ -150,24 +150,11 @@ const curriculumData = [
         },
     },
     {
-        emoji: "📊",
-        title: "Module 11: SQL for BI & Analytics",
-        content: {
-            learn: [
-                "SQL for Power BI / Tableau",
-                "Query folding basics",
-                "Creating analytical datasets",
-                "SQL best practices for dashboards",
-            ],
-            outcome: "Become job-ready for Data Analyst / BI roles",
-        },
-    },
-    {
         emoji: "🧪",
-        title: "Module 12: Mini Project (Hands-on)",
+        title: "Module 11: Mini Project (Hands-on)",
         content: {
         learn: [
-            "Project Example: Retail / E-commerce (Kroger-like project)",
+            "Project Example: Retail / E-commerce project",
             "Sales analysis",
             "Customer behavior analysis",
             "Store-wise performance",
@@ -202,7 +189,7 @@ export default function Curriculum() {
                 <AccordionContent className="overflow-hidden text-base transition-all">
                   <div className="space-y-6 pt-4 pb-4 pl-16 pr-4">
                     <div>
-                      <h4 className="font-headline font-semibold text-primary">What you will learn</h4>
+                      <h4 className="font-semibold text-primary">What you will learn</h4>
                       <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80">
                         {item.content.learn.map((point, i) => (
                           <li key={i}>{point}</li>
@@ -210,7 +197,7 @@ export default function Curriculum() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-headline font-semibold text-primary">Outcome</h4>
+                      <h4 className="font-semibold text-primary">Outcome</h4>
                       <p className="mt-2 text-foreground/80">{item.content.outcome}</p>
                     </div>
                   </div>
