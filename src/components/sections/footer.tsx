@@ -13,8 +13,8 @@ export default function Footer() {
             vickykhanke123@gmail.com
           </Link>
           <span className="hidden md:inline">|</span>
-          <Link href="tel:+911234567890" className="hover:text-primary">
-            +91 123-456-7890
+          <Link href="tel:+919130367814" className="hover:text-primary">
+            +91 9130367814
           </Link>
         </div>
       </div>

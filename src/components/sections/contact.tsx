@@ -208,7 +208,7 @@ export default function Contact() {
                         <Phone className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                         <div>
                             <h3 className="font-semibold">Call Us</h3>
-                            <a href="tel:+911234567890" className="text-foreground/80 hover:text-primary">+91 123-456-7890</a>
+                            <a href="tel:+919130367814" className="text-foreground/80 hover:text-primary">+91 9130367814</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">
