@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 const formSchema = z.object({
   fullName: z.string().min(2, 'Full name must be at least 2 characters.'),
   email: z.string().email('Please enter a valid email address.'),
-  mobile: z.string().optional(),
+  mobile: z.string().min(10, "Mobile number must be at least 10 digits."),
   subject: z.string().min(1, 'Please select a subject.'),
   message: z.string().min(10, 'Message must be at least 10 characters.').max(500),
 });
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
         <h2>New Query from SQL Accelerator Website</h2>
         <p><strong>Full Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mobile:</strong> ${mobile || 'Not provided'}</p>
+        <p><strong>Mobile:</strong> ${mobile}</p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>

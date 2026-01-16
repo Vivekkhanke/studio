@@ -31,7 +31,7 @@ import { useState } from "react"
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
-  mobile: z.string().optional(),
+  mobile: z.string().min(10, "Mobile number must be at least 10 digits."),
   subject: z.string().min(1, "Please select a subject."),
   message: z.string().min(10, "Message must be at least 10 characters.").max(500),
 })
@@ -134,9 +134,9 @@ export default function Contact() {
                     name="mobile"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Mobile Number (Optional)</FormLabel>
+                        <FormLabel>Mobile Number <span className="text-destructive">*</span></FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input placeholder="e.g. 9876543210" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
