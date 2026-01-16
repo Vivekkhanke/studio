@@ -15,7 +15,7 @@ export default function Hero() {
             Join our intensive 45-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
               <Link href="#contact">Enroll Now</Link>
             </Button>
           </div>

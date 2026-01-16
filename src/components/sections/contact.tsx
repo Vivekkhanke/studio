@@ -183,7 +183,7 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
+                <Button type="submit" className="w-full sm:w-auto transition-transform duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100" disabled={isSubmitting}>
                   {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   {isSubmitting ? 'Sending...' : 'Submit Query'}
                 </Button>
@@ -191,7 +191,7 @@ export default function Contact() {
             </Form>
           </div>
           <div className="lg:col-span-2">
-            <Card className="h-full bg-background">
+            <Card className="h-full bg-background transition-all duration-300 hover:shadow-lg">
                 <CardHeader>
                     <CardTitle className="font-headline text-primary">Contact Information</CardTitle>
                 </CardHeader>

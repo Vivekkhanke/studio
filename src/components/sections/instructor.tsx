@@ -14,7 +14,7 @@ export default function Instructor() {
           </p>
         </div>
         <div className="mt-12 flex justify-center">
-          <Card className="w-full max-w-4xl overflow-hidden md:flex">
+          <Card className="w-full max-w-4xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 md:flex">
             <div className="md:w-1/3 flex items-center justify-center bg-primary/5 p-8">
               <Image
                 src="/image.png"

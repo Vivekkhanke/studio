@@ -57,7 +57,7 @@ export default function CourseOverview() {
               </p>
             </CardContent>
             <CardFooter className="bg-muted/50 p-6">
-               <Button asChild className="w-full">
+               <Button asChild className="w-full transition-transform duration-300 ease-in-out hover:scale-105">
                   <Link href="#contact">Enroll Now & Get Started</Link>
                 </Button>
             </CardFooter>

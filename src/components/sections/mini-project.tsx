@@ -37,8 +37,8 @@ export default function MiniProject() {
             </p>
             <div className="mt-8 space-y-6">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <div key={index} className="group flex items-start gap-4 rounded-lg p-2 transition-all duration-300 hover:bg-muted/50 hover:-translate-y-1">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
                     <feature.icon className="h-6 w-6" />
                   </div>
                   <div>

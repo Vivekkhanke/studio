@@ -76,7 +76,7 @@ export default function Navigation() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild>
+          <Button asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
             <Link href="#contact">Enroll Now</Link>
           </Button>
         </div>
@@ -112,7 +112,7 @@ export default function Navigation() {
                 </nav>
                 <div className="mt-auto flex flex-col gap-2 border-t p-4">
                   <SheetClose asChild>
-                    <Button asChild size="lg">
+                    <Button asChild size="lg" className="transition-transform duration-300 ease-in-out hover:scale-105">
                       <Link href="#contact">Enroll Now</Link>
                     </Button>
                   </SheetClose>
