@@ -24,7 +24,7 @@ export default function WhatYouWillLearn() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {topics.map((topic, index) => (
-            <Card key={index} className="group flex flex-col items-center text-center p-6 transition-all duration-300 hover:bg-accent/10 hover:-translate-y-2 hover:shadow-xl animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
+            <Card key={index} className="group flex flex-col items-center text-center p-6 transition-all duration-300 hover:bg-accent/10 hover:-translate-y-2 hover:shadow-xl">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                 <topic.icon className="h-8 w-8" />
               </div>
