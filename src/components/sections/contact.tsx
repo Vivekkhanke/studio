@@ -136,7 +136,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Mobile Number (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="+91 98765 43210" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
