@@ -36,7 +36,7 @@ export default function Navigation() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
             <Database className="h-6 w-6" />
-            <span>SQL Accelerator</span>
+            <span>SQL by Vivek</span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
             {navLinks.map((link) => (
@@ -66,7 +66,7 @@ export default function Navigation() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
           <Database className="h-6 w-6" />
-          <span>SQL Accelerator</span>
+          <span>SQL by Vivek</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navLinks.map((link) => (
@@ -93,7 +93,7 @@ export default function Navigation() {
                 <div className="flex items-center justify-between border-b p-4">
                   <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
                     <Database className="h-6 w-6" />
-                    <span>SQL Accelerator</span>
+                    <span>SQL by Vivek</span>
                   </Link>
                   <SheetClose asChild>
                       <Button variant="ghost" size="icon">
