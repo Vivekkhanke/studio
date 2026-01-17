@@ -22,6 +22,12 @@ export default function CourseOverview() {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
+              <div className="mb-6 text-center">
+                <h3 className="font-headline text-2xl font-bold uppercase text-destructive animate-pulse">
+                  Limited Time Offer: 50% OFF!
+                </h3>
+                <p className="mt-1 text-foreground/80">Enroll now and get the complete course for just ₹2999. Hurry up!</p>
+              </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="flex items-center gap-3">
                   <Clock className="h-6 w-6 text-accent" />
@@ -48,7 +54,10 @@ export default function CourseOverview() {
                   <IndianRupee className="h-6 w-6 text-accent" />
                   <div>
                     <p className="font-semibold">Course Fee</p>
-                    <p className="text-foreground/80">₹2999</p>
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-primary">₹2999</span>
+                        <span className="text-md font-medium text-muted-foreground line-through">₹6000</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -58,7 +67,7 @@ export default function CourseOverview() {
             </CardContent>
             <CardFooter className="bg-muted/50 p-6">
                <Button asChild className="w-full transition-transform duration-300 ease-in-out hover:scale-105">
-                  <Link href="#contact">Enroll Now & Get Started</Link>
+                  <Link href="#contact">Enroll Now & Claim Your 50% Discount</Link>
                 </Button>
             </CardFooter>
           </Card>
