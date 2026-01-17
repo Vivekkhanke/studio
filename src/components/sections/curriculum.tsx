@@ -167,7 +167,7 @@ const curriculumData = [
         title: "Module 12: Mini Project (Hands-on)",
         content: {
         learn: [
-            "Project Example: Retail / E-commerce (Kroger-like project)",
+            "Project Example: Retail / E-commerce",
             "Sales analysis",
             "Customer behavior analysis",
             "Store-wise performance",
