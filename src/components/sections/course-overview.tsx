@@ -26,7 +26,7 @@ export default function CourseOverview() {
                 <h3 className="font-headline text-2xl font-bold uppercase text-destructive animate-pulse">
                   Limited Time Offer: 50% OFF!
                 </h3>
-                <p className="mt-1 text-foreground/80">Enroll now and get the complete course for just ₹2999. Hurry up!</p>
+                <p className="mt-1 text-foreground/80">Enroll now and get the complete course for just ₹2999 only. Hurry up!</p>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function CourseOverview() {
                   <div>
                     <p className="font-semibold">Course Fee</p>
                     <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-primary">₹2999</span>
+                        <span className="text-2xl font-bold text-primary">₹2999 only</span>
                         <span className="text-md font-medium text-muted-foreground line-through">₹6000</span>
                     </div>
                   </div>
