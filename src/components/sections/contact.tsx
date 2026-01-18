@@ -91,7 +91,7 @@ export default function Contact() {
     <section id="contact" className="w-full bg-card py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Have a Question?</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Have a Question or want to join our course ?</h2>
           <p className="mt-4 text-lg text-foreground/80">
             We're here to help. Fill out the form below, and our team will get back to you as soon as possible.
           </p>
