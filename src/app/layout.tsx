@@ -54,6 +54,29 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "SQL DB: Master SQL from Scratch (30-Day Course)",
+  "description": "Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SQL DB",
+    "sameAs": siteUrl
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "2999",
+    "priceCurrency": "INR",
+    "category": "Beginner"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "startDate": "2025-02-01"
+  }
+};
+
 
 export default function RootLayout({
   children,
@@ -67,6 +90,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="font-body antialiased">
         {children}
