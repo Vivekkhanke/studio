@@ -1,4 +1,6 @@
-import Link from 'next/link';
+"use client"
+
+import React from "react";
 
 export default function AnnouncementBar() {
   const announcementText = (
@@ -7,11 +9,21 @@ export default function AnnouncementBar() {
     </span>
   );
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*#/, "")
+    const elem = document.getElementById(targetId)
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+
   return (
     <div className="bg-primary text-primary-foreground py-2 text-sm font-medium overflow-hidden">
-      <Link href="#contact" className="hover:underline inline-block animate-marquee">
+      <a href="#contact" onClick={handleScroll} className="hover:underline inline-block animate-marquee">
           {announcementText}
-      </Link>
+      </a>
     </div>
   );
 }

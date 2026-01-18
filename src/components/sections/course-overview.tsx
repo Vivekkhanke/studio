@@ -1,9 +1,20 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Monitor, Users, IndianRupee } from "lucide-react"
-import Link from "next/link"
+import React from "react"
 
 export default function CourseOverview() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*#/, "")
+    const elem = document.getElementById(targetId)
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
   return (
     <section id="overview" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -67,7 +78,7 @@ export default function CourseOverview() {
             </CardContent>
             <CardFooter className="bg-muted/50 p-6">
                <Button asChild className="w-full transition-transform duration-300 ease-in-out hover:scale-105">
-                  <Link href="#contact">Enroll Now & Claim Your 50% Discount</Link>
+                  <a href="#contact" onClick={handleScroll}>Enroll Now & Claim Your 50% Discount</a>
                 </Button>
             </CardFooter>
           </Card>

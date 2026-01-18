@@ -1,7 +1,18 @@
-import Link from "next/link"
+"use client"
+
+import React from "react"
 import { Button } from "@/components/ui/button"
 
 export default function Cta() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*#/, "")
+    const elem = document.getElementById(targetId)
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
   return (
     <section id="cta" className="w-full bg-accent py-16 md:py-24">
       <div className="container mx-auto flex flex-col items-center justify-center gap-6 px-4 text-center md:px-6">
@@ -13,7 +24,7 @@ export default function Cta() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button size="lg" asChild variant="secondary" className="transition-transform duration-300 ease-in-out hover:scale-105">
-            <Link href="#contact">Enroll Now & Save 50%</Link>
+            <a href="#contact" onClick={handleScroll}>Enroll Now & Save 50%</a>
           </Button>
         </div>
       </div>

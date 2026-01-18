@@ -21,6 +21,23 @@ export default function Navigation() {
   const [open, setOpen] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.substring(href.indexOf("#") + 1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+    // Close the sheet if it's open
+    if (open) {
+      setOpen(false);
+    }
+  };
+
   React.useEffect(() => {
     setIsMounted(true);
     const handleScroll = () => {
@@ -34,20 +51,20 @@ export default function Navigation() {
     return (
       <header className={`sticky top-0 z-50 w-full transition-all duration-300`}>
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
+          <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
             <Database className="h-6 w-6" />
             <span>SQL DB</span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-foreground/80 transition-colors hover:text-primary">
+              <Link key={link.href} href={link.href} onClick={handleScrollTo} className="text-foreground/80 transition-colors hover:text-primary">
                 {link.label}
               </Link>
             ))}
           </nav>
           <div className="hidden items-center gap-2 md:flex">
             <Button asChild>
-              <Link href="#contact">Enroll Now</Link>
+              <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
             </Button>
           </div>
           <div className="md:hidden">
@@ -64,20 +81,20 @@ export default function Navigation() {
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-card/80 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
+        <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
           <Database className="h-6 w-6" />
           <span>SQL DB</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground/80 transition-colors hover:text-primary">
+            <Link key={link.href} href={link.href} onClick={handleScrollTo} className="text-foreground/80 transition-colors hover:text-primary">
               {link.label}
             </Link>
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
           <Button asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
-            <Link href="#contact">Enroll Now</Link>
+            <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -91,7 +108,7 @@ export default function Navigation() {
             <SheetContent side="right" className="w-[300px] bg-card">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b p-4">
-                  <Link href="#home" className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
+                  <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
                     <Database className="h-6 w-6" />
                     <span>SQL DB</span>
                   </Link>
@@ -104,7 +121,7 @@ export default function Navigation() {
                 <nav className="flex flex-1 flex-col gap-4 p-4">
                   {navLinks.map((link) => (
                     <SheetClose key={link.href} asChild>
-                      <Link href={link.href} className="text-lg text-foreground/80 transition-colors hover:text-primary">
+                      <Link href={link.href} onClick={handleScrollTo} className="text-lg text-foreground/80 transition-colors hover:text-primary">
                         {link.label}
                       </Link>
                     </SheetClose>
@@ -113,7 +130,7 @@ export default function Navigation() {
                 <div className="mt-auto flex flex-col gap-2 border-t p-4">
                   <SheetClose asChild>
                     <Button asChild size="lg" className="transition-transform duration-300 ease-in-out hover:scale-105">
-                      <Link href="#contact">Enroll Now</Link>
+                      <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
                     </Button>
                   </SheetClose>
                 </div>

@@ -1,9 +1,21 @@
-import Link from "next/link"
+"use client"
+
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Rocket, Medal, Gem } from "lucide-react"
 
 export default function Hero() {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*#/, "")
+    const elem = document.getElementById(targetId)
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+
   return (
     <section id="home" className="relative w-full overflow-hidden bg-primary/5 pt-24 md:pt-32 lg:pt-40">
       <div className="container mx-auto px-4 md:px-6">
@@ -16,7 +28,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
-              <Link href="#contact">Enroll Now</Link>
+              <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
