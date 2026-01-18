@@ -11,9 +11,9 @@ const formSchema = z.object({
 });
 
 const subjectMappings: { [key: string]: string } = {
-  'enrollment': 'SQL by Vivek | Enrollment',
-  'course-details': 'SQL by Vivek | Course Details',
-  'other': 'SQL by Vivek | Query',
+  'enrollment': 'SQL DB | Enrollment',
+  'course-details': 'SQL DB | Course Details',
+  'other': 'SQL DB | Query',
 };
 
 export async function POST(req: Request) {
@@ -48,14 +48,14 @@ export async function POST(req: Request) {
 
     const {fullName, email, mobile, subject, message} = validatedFields.data;
     const recipientEmail = 'vickykhanke123@gmail.com';
-    const emailSubject = subjectMappings[subject] || 'SQL by Vivek | New Query';
+    const emailSubject = subjectMappings[subject] || 'SQL DB | New Query';
 
     const mailOptions = {
       from: SMTP_EMAIL,
       to: recipientEmail,
       subject: emailSubject,
       html: `
-        <h2>New Query from SQL by Vivek Website</h2>
+        <h2>New Query from SQL DB Website</h2>
         <p><strong>Full Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Mobile:</strong> ${mobile}</p>
