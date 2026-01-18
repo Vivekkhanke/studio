@@ -1,3 +1,4 @@
+import AnnouncementBar from '@/components/sections/announcement-bar';
 import Navigation from '@/components/sections/navigation';
 import Hero from '@/components/sections/hero';
 import CourseOverview from '@/components/sections/course-overview';
@@ -13,6 +14,7 @@ import Footer from '@/components/sections/footer';
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
+      <AnnouncementBar />
       <Navigation />
       <main className="flex-1">
         <Hero />
