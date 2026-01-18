@@ -5,7 +5,7 @@ import { Rocket, Medal, Gem } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-card pt-24 md:pt-32 lg:pt-40">
+    <section id="home" className="relative w-full overflow-hidden bg-primary/5 pt-24 md:pt-32 lg:pt-40">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
@@ -20,15 +20,15 @@ export default function Hero() {
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Rocket className="mr-2 h-4 w-4" />
               30 Days Course
             </Badge>
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Medal className="mr-2 h-4 w-4" />
               Mini Project Included
             </Badge>
-            <Badge variant="default" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Gem className="mr-2 h-4 w-4" />
               Affordable Fee
             </Badge>
