@@ -18,7 +18,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative w-full overflow-hidden bg-accent/10 pt-24 md:pt-32 lg:pt-40">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
             Master SQL from Scratch with Real-World Projects
