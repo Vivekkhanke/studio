@@ -150,21 +150,8 @@ const curriculumData = [
         },
     },
     {
-        emoji: "📊",
-        title: "Module 11: SQL for BI & Analytics",
-        content: {
-        learn: [
-            "SQL for Power BI / Tableau",
-            "Query folding basics",
-            "Creating analytical datasets",
-            "SQL best practices for dashboards",
-        ],
-        outcome: "Become job-ready for Data Analyst / BI roles",
-        },
-    },
-    {
         emoji: "🧪",
-        title: "Module 12: Mini Project (Hands-on)",
+        title: "Module 11: Mini Project (Hands-on)",
         content: {
         learn: [
             "Project Example: Retail / E-commerce",
