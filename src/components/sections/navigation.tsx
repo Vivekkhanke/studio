@@ -24,7 +24,7 @@ export default function Navigation() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.href;
-    const targetId = href.substring(href.indexOf("#") + 1);
+    const targetId = href.replace(/.*#/, "");
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
