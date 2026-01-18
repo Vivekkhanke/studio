@@ -9,14 +9,9 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-primary text-primary-foreground py-2 text-sm font-medium overflow-hidden">
-      <div className="flex animate-marquee">
-        <Link href="#contact" className="hover:underline">
+      <Link href="#contact" className="hover:underline inline-block animate-marquee">
           {announcementText}
-        </Link>
-        <Link href="#contact" className="hover:underline" aria-hidden="true">
-          {announcementText}
-        </Link>
-      </div>
+      </Link>
     </div>
   );
 }
