@@ -14,8 +14,8 @@ import Footer from '@/components/sections/footer';
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <AnnouncementBar />
       <Navigation />
+      <AnnouncementBar />
       <main className="flex-1">
         <Hero />
         <CourseOverview />
