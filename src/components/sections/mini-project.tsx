@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
-import { Table, Zap, Briefcase } from "lucide-react"
+import { Table, Zap, Briefcase, Mic } from "lucide-react"
 
 const features = [
   {
@@ -17,6 +17,11 @@ const features = [
     icon: Briefcase,
     title: "Interview-Ready Scenarios",
     description: "Tackle problems frequently asked in technical interviews.",
+  },
+  {
+    icon: Mic,
+    title: "Mockup Interview Session",
+    description: "Practice your skills in a simulated interview environment.",
   },
 ]
 
