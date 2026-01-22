@@ -31,7 +31,7 @@ export default function Hero() {
               <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
             <Button size="lg" asChild variant="outline" className="transition-transform duration-300 ease-in-out hover:scale-105">
-              <a href="#contact" onClick={handleScroll}>Request a call</a>
+              <a href="tel:+919130367814">Request a call</a>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
