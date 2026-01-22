@@ -30,7 +30,7 @@ export default function Hero() {
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
               <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
-            <Button size="lg" asChild variant="outline" className="transition-transform duration-300 ease-in-out hover:scale-105">
+            <Button size="lg" asChild variant="secondary" className="transition-transform duration-300 ease-in-out hover:scale-105">
               <a href="tel:+919130367814">
                 Request a call
               </a>
