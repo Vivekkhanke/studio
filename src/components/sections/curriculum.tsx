@@ -1,3 +1,4 @@
+
 "use client"
 
 import {
@@ -167,9 +168,9 @@ const curriculumData = [
 
 export default function Curriculum() {
   return (
-    <section id="curriculum" className="w-full bg-muted/30 py-16 md:py-24 lg:py-32">
+    <section id="curriculum" className="w-full bg-muted/30 py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             📘 SQL Basics to Advanced – Complete Learning Path
           </h2>
@@ -177,12 +178,12 @@ export default function Curriculum() {
             A step-by-step curriculum designed to take you from novice to a job-ready SQL expert in 30 days.
           </p>
         </div>
-        <div className="mt-12 mx-auto max-w-4xl">
-          <Accordion type="single" collapsible className="w-full rounded-lg border bg-card p-2 shadow-sm">
+        <div className="mt-12 mx-auto max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <Accordion type="single" collapsible className="w-full rounded-lg border bg-card p-2 shadow-sm transition-all duration-300 hover:shadow-xl">
             <AccordionItem value="full-curriculum" className="border-b-0">
-                <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline data-[state=open]:border-b">
+                <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline group data-[state=open]:border-b">
                     <span className="flex items-center gap-4">
-                        <span className="text-2xl">📚</span>
+                        <span className="text-2xl transition-transform duration-300 group-hover:rotate-6">📚</span>
                         View Full Curriculum
                     </span>
                 </AccordionTrigger>
@@ -192,14 +193,14 @@ export default function Curriculum() {
                         {curriculumData.map((item, index) => (
                           <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 rounded-md border">
                             <AccordionItem value={`item-${index}`} className="border-b-0">
-                              <AccordionTrigger className="py-4 px-4 text-left font-semibold transition-all hover:no-underline">
+                              <AccordionTrigger className="py-4 px-4 text-left font-semibold transition-all hover:no-underline group">
                                 <h3 className="flex w-full items-center gap-4 text-lg text-left">
-                                    <span className="text-2xl">{item.emoji}</span>
+                                    <span className="text-2xl transition-transform duration-300 group-hover:scale-110">{item.emoji}</span>
                                     {item.title}
                                 </h3>
                               </AccordionTrigger>
                               <AccordionContent>
-                                  <div className="space-y-4 pt-4 pb-4 px-4 border-t">
+                                  <div className="space-y-4 pt-4 pb-4 px-4 border-t animate-fade-in">
                                       <div>
                                           <h4 className="font-semibold text-primary text-sm">What you will learn</h4>
                                           <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80 text-sm">

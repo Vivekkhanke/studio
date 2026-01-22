@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -92,11 +93,40 @@ export default {
           '0%': { transform: 'translateX(100vw)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        'fade-in-up': {
+          '0%': {
+              opacity: '0',
+              transform: 'translateY(30px)'
+          },
+          '100%': {
+              opacity: '1',
+              transform: 'translateY(0)'
+          },
+        },
+        'fade-in': {
+          '0%': {
+              opacity: '0',
+          },
+          '100%': {
+              opacity: '1',
+          },
+        },
+        'pulse-glow': {
+          '0%, 100%': {
+            boxShadow: '0 0 0 0 hsl(var(--primary) / 0.7)',
+          },
+          '50%': {
+            boxShadow: '0 0 20px 10px hsl(var(--primary) / 0)',
+          },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'marquee': 'marquee 20s linear infinite',
+        'fade-in-up': 'fade-in-up 0.5s ease-out both',
+        'fade-in': 'fade-in 0.5s ease-out both',
+        'pulse-glow': 'pulse-glow 2s infinite',
       },
     },
   },

@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { Table, Zap, Briefcase, Mic } from "lucide-react"
@@ -29,10 +30,10 @@ export default function MiniProject() {
   const projectImage = PlaceHolderImages.find(p => p.id === "project-showcase")
 
   return (
-    <section id="project" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="project" className="w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center animate-fade-in-up">
             <div className="mb-4">
               <span className="font-headline text-sm font-semibold uppercase tracking-wider text-accent">Hands-On Learning</span>
               <h2 className="mt-2 font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Solidify Your Skills with a Mini-Project</h2>
@@ -42,7 +43,7 @@ export default function MiniProject() {
             </p>
             <div className="mt-8 space-y-6">
               {features.map((feature, index) => (
-                <div key={index} className="group flex items-start gap-4 rounded-lg p-2 transition-all duration-300 hover:bg-muted/50 hover:-translate-y-1">
+                <div key={index} className="group flex items-start gap-4 rounded-lg p-2 transition-all duration-300 hover:bg-muted/50 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s`}}>
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
                     <feature.icon className="h-6 w-6" />
                   </div>
@@ -54,7 +55,7 @@ export default function MiniProject() {
               ))}
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             {projectImage && (
               <Image
                 src={projectImage.imageUrl}

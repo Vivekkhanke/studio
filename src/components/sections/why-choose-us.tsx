@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, Lightbulb, IndianRupee, FileCode, UserCheck } from "lucide-react"
 
@@ -31,9 +32,9 @@ const benefits = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="w-full bg-card py-16 md:py-24 lg:py-32">
+    <section id="why-us" className="w-full bg-card py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Why Choose This Course?</h2>
           <p className="mt-4 text-lg text-foreground/80">
             We provide a clear path to SQL proficiency with benefits designed for your success.
@@ -41,7 +42,7 @@ export default function WhyChooseUs() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <div key={index} className="group flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent/10 hover:-translate-y-1 hover:shadow-lg">
+            <div key={index} className="group flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-accent/10 hover:-translate-y-1 hover:shadow-lg animate-fade-in-up" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
               <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground transition-transform duration-300 group-hover:scale-110">
                 <benefit.icon className="h-6 w-6" />
               </div>

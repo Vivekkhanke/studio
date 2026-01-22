@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin, Briefcase, Star } from "lucide-react"
@@ -5,15 +6,15 @@ import Link from "next/link"
 
 export default function Instructor() {
   return (
-    <section id="instructor" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="instructor" className="w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Meet Your Instructor</h2>
           <p className="mt-4 text-lg text-foreground/80">
             Learn from an industry expert with a passion for teaching and data.
           </p>
         </div>
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Card className="w-full max-w-4xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 md:flex">
             <div className="md:w-1/3 flex items-center justify-center bg-primary/5 p-8">
               <Image

@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from "react"
@@ -20,13 +21,13 @@ export default function Hero() {
     <section id="home" className="relative w-full overflow-hidden bg-accent/10 pt-24 md:pt-32 lg:pt-40">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             Master SQL from Scratch with Real-World Projects
           </h1>
-          <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
+          <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Join our intensive 30-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
               <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
@@ -36,7 +37,7 @@ export default function Hero() {
               </a>
             </Button>
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
+          <div className="mt-12 flex flex-wrap justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
               <Rocket className="mr-2 h-4 w-4" />
               30 Days Course
@@ -57,7 +58,7 @@ export default function Hero() {
         aria-hidden="true"
       />
        <div
-        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent -z-10"
+        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent"
         aria-hidden="true"
       />
     </section>

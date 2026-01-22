@@ -1,3 +1,4 @@
+
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -88,16 +89,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full bg-card py-16 md:py-24 lg:py-32">
+    <section id="contact" className="w-full bg-card py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Have a Question or want to join our course ?</h2>
           <p className="mt-4 text-lg text-foreground/80">
             We're here to help. Fill out the form below, and our team will get back to you as soon as possible.
           </p>
         </div>
         <div className="mt-12 grid gap-12 lg:grid-cols-5 lg:gap-8">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -190,8 +191,8 @@ export default function Contact() {
               </form>
             </Form>
           </div>
-          <div className="lg:col-span-2">
-            <Card className="h-full bg-background transition-all duration-300 hover:shadow-lg">
+          <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Card className="h-full bg-background transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <CardHeader>
                     <CardTitle className="font-headline text-primary">Contact Information</CardTitle>
                 </CardHeader>
@@ -200,14 +201,14 @@ export default function Contact() {
                         <Mail className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                         <div>
                             <h3 className="font-semibold">Email Us</h3>
-                            <a href="mailto:vickykhanke123@gmail.com" className="text-foreground/80 hover:text-primary">vickykhanke123@gmail.com</a>
+                            <a href="mailto:vickykhanke123@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">vickykhanke123@gmail.com</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">
                         <Phone className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                         <div>
                             <h3 className="font-semibold">Call Us</h3>
-                            <a href="tel:+919130367814" className="text-foreground/80 hover:text-primary">9130367814</a>
+                            <a href="tel:+919130367814" className="text-foreground/80 hover:text-primary transition-colors">9130367814</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">

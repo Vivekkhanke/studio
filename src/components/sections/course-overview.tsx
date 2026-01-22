@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
@@ -16,15 +17,15 @@ export default function CourseOverview() {
     })
   }
   return (
-    <section id="overview" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="overview" className="w-full py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Course Overview</h2>
           <p className="mt-4 text-lg text-foreground/80">
             Everything you need to know about our comprehensive SQL program, designed to take you from novice to pro.
           </p>
         </div>
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Card className="w-full max-w-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-2">
             <CardHeader className="bg-primary p-6 text-primary-foreground">
               <CardTitle className="font-headline text-2xl">SQL DB: Zero to Hero</CardTitle>
