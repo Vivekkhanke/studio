@@ -3,7 +3,7 @@
 import React from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Rocket, Medal, Gem } from "lucide-react"
+import { Rocket, Medal, Gem, Phone } from "lucide-react"
 
 export default function Hero() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -30,8 +30,11 @@ export default function Hero() {
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
               <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
-            <Button size="lg" asChild variant="outline" className="transition-transform duration-300 ease-in-out hover:scale-105">
-              <a href="tel:+919130367814">Request a call</a>
+            <Button size="lg" asChild variant="accent" className="transition-transform duration-300 ease-in-out hover:scale-105">
+              <a href="tel:+919130367814">
+                <Phone />
+                Request a call
+              </a>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
