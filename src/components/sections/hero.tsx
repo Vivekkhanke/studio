@@ -30,6 +30,9 @@ export default function Hero() {
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
               <a href="#contact" onClick={handleScroll}>Enroll Now</a>
             </Button>
+            <Button size="lg" asChild variant="outline" className="transition-transform duration-300 ease-in-out hover:scale-105">
+              <a href="#contact" onClick={handleScroll}>Request a call</a>
+            </Button>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
@@ -52,7 +55,7 @@ export default function Hero() {
         aria-hidden="true"
       />
        <div
-        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent"
+        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent -z-10"
         aria-hidden="true"
       />
     </section>
