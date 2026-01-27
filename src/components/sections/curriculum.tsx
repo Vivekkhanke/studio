@@ -1,4 +1,3 @@
-
 "use client"
 
 import {
@@ -161,6 +160,17 @@ const curriculumData = [
             "Store-wise performance",
         ],
         outcome: "Real project experience for resume & interviews.",
+        },
+    },
+    {
+        emoji: "🤝",
+        title: "Module 12: Interview Preparations",
+        content: {
+        learn: [
+            "Mock Interviews",
+            "Interview Guidance",
+        ],
+        outcome: "Gain confidence and be fully prepared for technical SQL interviews.",
         },
     },
 ];
