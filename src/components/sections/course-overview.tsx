@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
@@ -52,7 +51,7 @@ export default function CourseOverview() {
                   <Calendar className="h-6 w-6 text-accent" />
                   <div>
                     <p className="font-semibold">Batch Starts</p>
-                    <p className="text-foreground/80">1st February</p>
+                    <p className="text-foreground/80">15th February</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
