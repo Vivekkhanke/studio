@@ -162,6 +162,17 @@ const sqlCurriculum = [
         outcome: "Real project experience for resume & interviews.",
         },
     },
+    {
+        emoji: "🎓",
+        title: "Module 12: Interview & Certification Guidance",
+        content: {
+        learn: [
+            "Mock interview",
+            "Certifications Guidance",
+        ],
+        outcome: "Gain the confidence to ace technical interviews and earn industry-recognized certifications.",
+        },
+    },
 ];
 
 export default function Curriculum() {
