@@ -162,17 +162,6 @@ const sqlCurriculum = [
         outcome: "Real project experience for resume & interviews.",
         },
     },
-    {
-        emoji: "🤝",
-        title: "Module 12: Interview Preparations",
-        content: {
-        learn: [
-            "Mock Interviews",
-            "Interview Guidance",
-        ],
-        outcome: "Gain confidence and be fully prepared for technical SQL interviews.",
-        },
-    },
 ];
 
 export default function Curriculum() {
@@ -181,7 +170,7 @@ export default function Curriculum() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            📘 Comprehensive SQL Curriculum
+            📘 SQL Basics to Advanced – Complete Learning Path
           </h2>
           <p className="mt-4 text-lg text-foreground/80">
             Step-by-step curriculum designed to take you from novice to job-ready in 30 days.
