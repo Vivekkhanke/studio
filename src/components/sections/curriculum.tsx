@@ -392,18 +392,28 @@ export default function Curriculum() {
 
         <div className="mt-12 mx-auto max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Tabs defaultValue="sql" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid w-full max-w-md grid-cols-2">
-                <TabsTrigger value="sql">SQL Path</TabsTrigger>
-                <TabsTrigger value="python">Python Path</TabsTrigger>
+            <div className="flex justify-center mb-10">
+              <TabsList className="grid w-full max-w-md grid-cols-2 h-14 p-1.5 bg-card/50 rounded-xl border-2 border-primary/20 shadow-inner">
+                <TabsTrigger 
+                  value="sql" 
+                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
+                >
+                  SQL Path
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="python" 
+                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
+                >
+                  Python Path
+                </TabsTrigger>
               </TabsList>
             </div>
 
-            <TabsContent value="sql">
+            <TabsContent value="sql" className="animate-fade-in focus-visible:outline-none">
               <CurriculumAccordion data={sqlCurriculum} label="View Full SQL Curriculum" />
             </TabsContent>
 
-            <TabsContent value="python">
+            <TabsContent value="python" className="animate-fade-in focus-visible:outline-none">
               <CurriculumAccordion data={pythonCurriculum} label="View Full Python Curriculum" />
             </TabsContent>
           </Tabs>
@@ -415,39 +425,42 @@ export default function Curriculum() {
 
 function CurriculumAccordion({ data, label }: { data: any[], label: string }) {
   return (
-    <Accordion type="single" collapsible className="w-full rounded-lg border bg-card p-2 shadow-sm transition-all duration-300 hover:shadow-xl">
+    <Accordion type="single" collapsible className="w-full rounded-xl border bg-card p-2 shadow-sm transition-all duration-300 hover:shadow-xl">
       <AccordionItem value="full-curriculum" className="border-b-0">
-        <AccordionTrigger className="py-4 px-4 text-left text-lg font-semibold transition-all hover:no-underline group data-[state=open]:border-b">
-          <span className="flex items-center gap-4">
+        <AccordionTrigger className="py-5 px-4 text-left text-xl font-bold transition-all hover:no-underline group data-[state=open]:border-b">
+          <span className="flex items-center gap-4 text-primary">
             <span className="text-2xl transition-transform duration-300 group-hover:rotate-6">📚</span>
             {label}
           </span>
         </AccordionTrigger>
         <AccordionContent className="overflow-hidden text-base transition-all">
-          <div className="pt-4 px-2">
-            <Accordion type="multiple" className="w-full space-y-2">
+          <div className="pt-6 px-2">
+            <Accordion type="multiple" className="w-full space-y-3">
               {data.map((item, index) => (
-                <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 rounded-md border">
+                <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-0.5 rounded-lg border bg-background/50">
                   <AccordionItem value={`item-${index}`} className="border-b-0">
-                    <AccordionTrigger className="py-4 px-4 text-left font-semibold transition-all hover:no-underline group">
+                    <AccordionTrigger className="py-4 px-5 text-left font-semibold transition-all hover:no-underline group">
                       <h3 className="flex w-full items-center gap-4 text-lg text-left">
                         <span className="text-2xl transition-transform duration-300 group-hover:scale-110">{item.emoji}</span>
-                        {item.title}
+                        <span className="group-hover:text-primary transition-colors">{item.title}</span>
                       </h3>
                     </AccordionTrigger>
                     <AccordionContent>
-                      <div className="space-y-4 pt-4 pb-4 px-4 border-t animate-fade-in">
+                      <div className="space-y-4 pt-4 pb-5 px-5 border-t animate-fade-in bg-muted/10">
                         <div>
-                          <h4 className="font-semibold text-primary text-sm">What you will learn</h4>
-                          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-foreground/80 text-sm">
+                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">What you will learn</h4>
+                          <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none text-foreground/80 text-sm">
                             {item.content.learn.map((point: string, i: number) => (
-                              <li key={i}>{point}</li>
+                              <li key={i} className="flex items-start gap-2">
+                                <span className="text-accent mt-0.5">●</span>
+                                {point}
+                              </li>
                             ))}
                           </ul>
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-primary text-sm">Outcome</h4>
-                          <p className="mt-2 text-foreground/80 text-sm">{item.content.outcome}</p>
+                        <div className="pt-2 border-t border-dashed">
+                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">Outcome</h4>
+                          <p className="mt-2 text-foreground/80 text-sm italic">{item.content.outcome}</p>
                         </div>
                       </div>
                     </AccordionContent>
