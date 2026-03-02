@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from "react"
@@ -22,10 +21,10 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Master SQL from Scratch with Real-World Projects
+            Master SQL & Python from Scratch with Real-World Projects
           </h1>
           <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Join our intensive 30-day course and gain hands-on SQL mastery through practical exercises and a comprehensive mini-project. Go from beginner to job-ready.
+            Join our intensive 30-day course and gain hands-on mastery through practical exercises and comprehensive mini-projects. Go from beginner to job-ready.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">

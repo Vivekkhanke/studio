@@ -7,15 +7,15 @@ const siteUrl = 'https://sql-accelerator-demo.web.app';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SQL DB | Master SQL From Scratch (30-Day Course)',
+    default: 'SQL DB | Master SQL & Python From Scratch (30-Day Course)',
     template: '%s | SQL DB',
   },
-  description: 'Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.',
-  keywords: ['SQL course', 'learn SQL', 'SQL training', 'data analysis', 'SQL projects', 'database queries', 'query optimization', 'Vivek Khanke', 'beginner SQL'],
+  description: 'Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.',
+  keywords: ['SQL course', 'learn SQL', 'Python course', 'learn Python', 'SQL training', 'data analysis', 'SQL projects', 'database queries', 'query optimization', 'Vivek Khanke', 'beginner SQL', 'beginner Python'],
   
   openGraph: {
-    title: 'SQL DB | Master SQL From Scratch',
-    description: 'Join our 30-day intensive SQL course and go from beginner to job-ready with hands-on, real-world projects.',
+    title: 'SQL DB | Master SQL & Python From Scratch',
+    description: 'Join our 30-day intensive SQL & Python course and go from beginner to job-ready with hands-on, real-world projects.',
     url: siteUrl,
     siteName: 'SQL DB',
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1200&h=630',
         width: 1200,
         height: 630,
-        alt: 'A person working on a laptop with data dashboards, representing the SQL DB course.',
+        alt: 'A person working on a laptop with data dashboards, representing the SQL & Python DB course.',
       },
     ],
     locale: 'en_US',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'SQL DB | Master SQL From Scratch (30-Day Course)',
-    description: 'Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects.',
+    title: 'SQL DB | Master SQL & Python From Scratch (30-Day Course)',
+    description: 'Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects.',
     images: ['https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1200&h=630'],
   },
 
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "SQL DB: Master SQL from Scratch (30-Day Course)",
-  "description": "Go from beginner to job-ready with our 30-day intensive SQL course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.",
+  "name": "SQL DB: Master SQL & Python from Scratch (30-Day Course)",
+  "description": "Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.",
   "provider": {
     "@type": "Organization",
     "name": "SQL DB",
