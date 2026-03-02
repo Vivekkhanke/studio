@@ -7,17 +7,17 @@ const siteUrl = 'https://sql-accelerator-demo.web.app';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SQL DB | Master SQL & Python From Scratch (30-Day Course)',
-    template: '%s | SQL DB',
+    default: 'Python & SQL DB | Master SQL & Python From Scratch (30-Day Course)',
+    template: '%s | Python & SQL DB',
   },
   description: 'Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.',
   keywords: ['SQL course', 'learn SQL', 'Python course', 'learn Python', 'SQL training', 'data analysis', 'SQL projects', 'database queries', 'query optimization', 'Vivek Khanke', 'beginner SQL', 'beginner Python'],
   
   openGraph: {
-    title: 'SQL DB | Master SQL & Python From Scratch',
+    title: 'Python & SQL DB | Master SQL & Python From Scratch',
     description: 'Join our 30-day intensive SQL & Python course and go from beginner to job-ready with hands-on, real-world projects.',
     url: siteUrl,
-    siteName: 'SQL DB',
+    siteName: 'Python & SQL DB',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1200&h=630',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'SQL DB | Master SQL & Python From Scratch (30-Day Course)',
+    title: 'Python & SQL DB | Master SQL & Python From Scratch (30-Day Course)',
     description: 'Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects.',
     images: ['https://images.unsplash.com/photo-1542744173-05336fcc7ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc2ODM2OTg3NHww&ixlib=rb-4.1.0&q=80&w=1200&h=630'],
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "SQL DB: Master SQL & Python from Scratch (30-Day Course)",
+  "name": "Python & SQL: Master SQL & Python from Scratch (30-Day Course)",
   "description": "Go from beginner to job-ready with our 30-day intensive SQL & Python course. Gain hands-on mastery through real-world projects and expert-led training in data analysis and query optimization.",
   "provider": {
     "@type": "Organization",

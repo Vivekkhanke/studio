@@ -27,7 +27,7 @@ export default function CourseOverview() {
         <div className="mt-12 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Card className="w-full max-w-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-2">
             <CardHeader className="bg-primary p-6 text-primary-foreground">
-              <CardTitle className="font-headline text-2xl">SQL DB: Zero to Hero</CardTitle>
+              <CardTitle className="font-headline text-2xl">Python & SQL: Zero to Hero</CardTitle>
               <CardDescription className="text-primary-foreground/80">
                 An intensive, project-based SQL training program.
               </CardDescription>
