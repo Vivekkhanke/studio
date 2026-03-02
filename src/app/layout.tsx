@@ -73,7 +73,7 @@ const jsonLd = {
   "hasCourseInstance": {
     "@type": "CourseInstance",
     "courseMode": "Online",
-    "startDate": "2025-02-15"
+    "startDate": "2025-03-10"
   }
 };
 
