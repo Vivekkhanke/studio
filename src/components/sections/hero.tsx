@@ -1,65 +1,101 @@
-"use client"
+'use client';
 
-import React from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Rocket, Medal, Gem } from "lucide-react"
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Rocket, Medal, Gem } from 'lucide-react';
+import MotionDiv from '@/components/ui/motion-div';
 
 export default function Hero() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault()
-    const href = e.currentTarget.href
-    const targetId = href.replace(/.*#/, "")
-    const elem = document.getElementById(targetId)
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*#/, '');
+    const elem = document.getElementById(targetId);
     elem?.scrollIntoView({
-      behavior: "smooth",
-    })
-  }
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-accent/10 pt-24 md:pt-32 lg:pt-40">
+    <section
+      id="home"
+      className="relative w-full overflow-hidden bg-accent/10 pt-24 md:pt-32 lg:pt-40"
+    >
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Master SQL & Python from Scratch with Real-World Projects
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Join our intensive 30-day course and gain hands-on mastery through practical exercises and comprehensive mini-projects. Go from beginner to job-ready.
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <Button size="lg" asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
-              <a href="#contact" onClick={handleScroll}>Enroll Now</a>
-            </Button>
-            <Button size="lg" asChild variant="secondary" className="transition-transform duration-300 ease-in-out hover:scale-105">
-              <a href="tel:+919130367814">
-                Request a call
+          <MotionDiv animation="slide-in" delay={0.1}>
+            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+              Master SQL & Python from Scratch with Real-World Projects
+            </h1>
+          </MotionDiv>
+          <MotionDiv animation="slide-in" delay={0.2}>
+            <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
+              Join our intensive 30-day course and gain hands-on mastery through
+              practical exercises and comprehensive mini-projects. Go from
+              beginner to job-ready.
+            </p>
+          </MotionDiv>
+          <MotionDiv
+            animation="fade-in"
+            delay={0.3}
+            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          >
+            <Button
+              size="lg"
+              asChild
+              className="transition-transform duration-300 ease-in-out hover:scale-105"
+            >
+              <a href="#contact" onClick={handleScroll}>
+                Enroll Now
               </a>
             </Button>
-          </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Button
+              size="lg"
+              asChild
+              variant="secondary"
+              className="transition-transform duration-300 ease-in-out hover:scale-105"
+            >
+              <a href="tel:+919130367814">Request a call</a>
+            </Button>
+          </MotionDiv>
+          <MotionDiv
+            animation="fade-in"
+            delay={0.4}
+            className="mt-12 flex flex-wrap justify-center gap-4"
+          >
+            <Badge
+              variant="accent"
+              className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105"
+            >
               <Rocket className="mr-2 h-4 w-4" />
               30 Days Course
             </Badge>
-            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Badge
+              variant="accent"
+              className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105"
+            >
               <Medal className="mr-2 h-4 w-4" />
               Mini Project Included
             </Badge>
-            <Badge variant="accent" className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105">
+            <Badge
+              variant="accent"
+              className="px-4 py-2 text-sm transition-transform duration-300 ease-in-out hover:scale-105"
+            >
               <Gem className="mr-2 h-4 w-4" />
               Affordable Fee
             </Badge>
-          </div>
+          </MotionDiv>
         </div>
       </div>
       <div
         className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent"
         aria-hidden="true"
       />
-       <div
+      <div
         className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent"
         aria-hidden="true"
       />
     </section>
-  )
+  );
 }

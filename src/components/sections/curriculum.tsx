@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import MotionDiv from "@/components/ui/motion-div";
 
 const sqlCurriculum = [
     {
@@ -20,6 +21,11 @@ const sqlCurriculum = [
             "Tables, Rows, Columns, Keys",
             "Data types (INT, VARCHAR, DATE, DECIMAL, etc.)",
             "Core SQL Commands (SELECT, INSERT, UPDATE, DELETE, DISTINCT, LIMIT / TOP)",
+        ],
+        realWorld: [
+          "Fetching user data from a customer database.",
+          "Adding a new product to an inventory system.",
+          "Updating a user's profile information."
         ],
         outcome: "You will be able to read and write basic SQL queries and understand how data is stored in tables.",
         },
@@ -36,6 +42,11 @@ const sqlCurriculum = [
             "ORDER BY",
             "NULL handling",
         ],
+        realWorld: [
+          "Filtering products by price range and category.",
+          "Finding all employees hired in the last quarter.",
+          "Sorting search results by relevance or date."
+        ],
         outcome: "Extract exact data needed for reports and analysis.",
         },
     },
@@ -47,8 +58,11 @@ const sqlCurriculum = [
             "COUNT, SUM, AVG, MIN, MAX",
             "GROUP BY",
             "HAVING vs WHERE",
-            "Real Scenario: Total sales per store",
-            "Real Scenario: Average order value per customer",
+        ],
+        realWorld: [
+            "Calculating total sales per store.",
+            "Finding the average order value per customer.",
+            "Identifying the most popular products."
         ],
         outcome: "Perform data summarization and business reporting.",
         },
@@ -64,7 +78,11 @@ const sqlCurriculum = [
             "FULL JOIN",
             "Self Join",
             "Cross Join",
-            "Real Scenario: Orders + Customers + Products (E-commerce / Retail)",
+        ],
+        realWorld: [
+            "Combining order, customer, and product data for a complete sales picture.",
+            "Analyzing user engagement by joining user and activity tables.",
+            "Generating financial reports by linking sales and expense data."
         ],
         outcome: "Combine data from multiple tables like a real project.",
         },
@@ -79,6 +97,11 @@ const sqlCurriculum = [
             "Common Table Expressions (CTE)",
             "Recursive CTE (basic intro)",
         ],
+        realWorld: [
+          "Finding customers who have placed more than the average number of orders.",
+          "Breaking down complex queries into logical, readable steps.",
+          "Analyzing organizational hierarchies or graph-like data."
+        ],
         outcome: "Write clean, readable, and optimized queries.",
         },
     },
@@ -92,8 +115,11 @@ const sqlCurriculum = [
             "LEAD, LAG",
             "PARTITION BY",
             "Running totals",
-            "Real Scenario: Top N products per store",
-            "Real Scenario: Customer purchase trend",
+        ],
+        realWorld: [
+          "Finding the top N products within each category.",
+          "Analyzing customer purchase trends over time.",
+          "Calculating month-over-month growth."
         ],
         outcome: "Handle interview-level and real-time analytics questions.",
         },
@@ -107,6 +133,11 @@ const sqlCurriculum = [
             "1NF, 2NF, 3NF",
             "Star vs Snowflake schema",
             "OLTP vs OLAP",
+        ],
+        realWorld: [
+          "Designing a scalable database for a new application.",
+          "Optimizing an existing database for better performance and data integrity.",
+          "Understanding the trade-offs between different data modeling techniques."
         ],
         outcome: "Design scalable and optimized databases.",
         },
@@ -122,6 +153,11 @@ const sqlCurriculum = [
             "Index vs Full Table Scan",
             "Query optimization basics",
         ],
+        realWorld: [
+          "Speeding up slow-running queries in a production system.",
+          "Improving the performance of a high-traffic website.",
+          "Making data retrieval faster for analytical dashboards."
+        ],
         outcome: "Improve query performance in production systems.",
         },
     },
@@ -134,6 +170,11 @@ const sqlCurriculum = [
             "User Defined Functions",
             "Stored Procedures",
             "Advantages and use cases",
+        ],
+        realWorld: [
+          "Creating a simplified view of complex data for reporting.",
+          "Encapsulating business logic in reusable functions.",
+          "Automating common database tasks with stored procedures."
         ],
         outcome: "Build reusable and secure SQL logic.",
         },
@@ -148,6 +189,11 @@ const sqlCurriculum = [
             "Transactions (COMMIT, ROLLBACK)",
             "ACID properties",
         ],
+        realWorld: [
+          "Ensuring data integrity in a financial application.",
+          "Handling multi-step processes like bank transfers safely.",
+          "Preventing data corruption during concurrent operations."
+        ],
         outcome: "Maintain data integrity and reliability.",
         },
     },
@@ -161,6 +207,11 @@ const sqlCurriculum = [
             "Customer behavior analysis",
             "Store-wise performance",
         ],
+        realWorld: [
+          "Building a sales dashboard for a retail company.",
+          "Analyzing customer churn for a subscription service.",
+          "Optimizing inventory management for an e-commerce store."
+        ],
         outcome: "Real project experience for resume & interviews.",
         },
     },
@@ -171,6 +222,11 @@ const sqlCurriculum = [
         learn: [
             "Mock interview",
             "Certifications Guidance",
+        ],
+        realWorld: [
+          "Practicing common SQL interview questions.",
+          "Preparing for industry certifications like Microsoft's MTA or Oracle's OCA.",
+          "Building a strong portfolio to showcase your SQL skills."
         ],
         outcome: "Gain the confidence to ace technical interviews and earn industry-recognized certifications.",
         },
@@ -189,6 +245,11 @@ const pythonCurriculum = [
         "Running Python scripts",
         "Syntax basics & Comments",
       ],
+      realWorld: [
+        "Setting up a development environment for a new project.",
+        "Writing a simple script to automate a repetitive task.",
+        "Exploring different career paths that use Python."
+      ],
       outcome: "Students can install Python and run their first programs.",
     },
   },
@@ -203,6 +264,11 @@ const pythonCurriculum = [
         "Type checking: type()",
         "Type casting",
       ],
+      realWorld: [
+        "Storing user information in a web application.",
+        "Representing financial data with appropriate precision.",
+        "Manipulating text data for natural language processing."
+      ],
       outcome: "Understand how Python stores and manages data types.",
     },
   },
@@ -214,6 +280,11 @@ const pythonCurriculum = [
         "Arithmetic & Comparison operators",
         "Logical & Assignment operators",
         "Membership & Identity operators",
+      ],
+      realWorld: [
+        "Performing calculations in a financial analysis script.",
+        "Implementing complex business rules with logical operators.",
+        "Checking for the presence of an item in a list or dictionary."
       ],
       outcome: "Perform calculations and logical comparisons.",
     },
@@ -227,6 +298,11 @@ const pythonCurriculum = [
         "Output formatting",
         "Multiple inputs & Type conversion",
       ],
+      realWorld: [
+        "Building a command-line tool for data entry.",
+        "Creating a simple calculator or game.",
+        "Reading data from a user to personalize an experience."
+      ],
       outcome: "Build interactive command-line programs.",
     },
   },
@@ -237,7 +313,11 @@ const pythonCurriculum = [
       learn: [
         "if, if-else, if-elif-else",
         "Nested conditions",
-        "Real Scenario: Grade calculator, Voting system",
+      ],
+      realWorld: [
+        "Implementing a grading system based on student scores.",
+        "Building a recommendation engine based on user preferences.",
+        "Controlling the flow of a program based on user input."
       ],
       outcome: "Implement decision-making logic in code.",
     },
@@ -251,6 +331,11 @@ const pythonCurriculum = [
         "break, continue statements",
         "Nested loops & Patterns",
       ],
+      realWorld: [
+        "Processing all files in a directory.",
+        "Scraping data from a website.",
+        "Generating a series of reports automatically."
+      ],
       outcome: "Automate repetitive tasks efficiently.",
     },
   },
@@ -263,6 +348,11 @@ const pythonCurriculum = [
         "String methods & Operations",
         "Palindrome checking & Reversing",
       ],
+      realWorld: [
+        "Parsing and cleaning text data from a file.",
+        "Validating user input in a web form.",
+        "Extracting information from unstructured text data."
+      ],
       outcome: "Master text data manipulation.",
     },
   },
@@ -274,6 +364,11 @@ const pythonCurriculum = [
         "List creation & Indexing",
         "Methods: append, insert, remove, pop",
         "Iterating through lists",
+      ],
+      realWorld: [
+        "Storing a collection of items in a shopping cart.",
+        "Managing a to-do list application.",
+        "Processing a list of email addresses for a marketing campaign."
       ],
       outcome: "Manage dynamic collections of data.",
     },
@@ -288,6 +383,11 @@ const pythonCurriculum = [
         "Key-value pairs in Dictionaries",
         "Dictionary methods & Nesting",
       ],
+      realWorld: [
+        "Storing database records as tuples for efficiency.",
+        "Finding unique items in a large dataset.",
+        "Representing complex data structures like JSON objects."
+      ],
       outcome: "Work with structured and unique data collections.",
     },
   },
@@ -299,6 +399,11 @@ const pythonCurriculum = [
         "Defining functions & Parameters",
         "Return values & Default arguments",
         "Reusable code blocks",
+      ],
+      realWorld: [
+        "Creating a library of reusable functions for a project.",
+        "Breaking down a complex problem into smaller, manageable parts.",
+        "Improving the readability and maintainability of your code."
       ],
       outcome: "Write modular and maintainable code.",
     },
@@ -312,6 +417,11 @@ const pythonCurriculum = [
         "Creating custom modules",
         "Using pip for external packages",
       ],
+      realWorld: [
+        "Extending the functionality of your application with third-party libraries.",
+        "Organizing a large project into multiple modules and packages.",
+        "Sharing your code with others as a reusable package."
+      ],
       outcome: "Organize code into logical modules.",
     },
   },
@@ -323,6 +433,11 @@ const pythonCurriculum = [
         "try, except, finally blocks",
         "Handling ZeroDivision & Type errors",
         "Safe program execution",
+      ],
+      realWorld: [
+        "Preventing a web server from crashing due to invalid user input.",
+        "Handling network errors gracefully in a data scraping script.",
+        "Ensuring that critical resources are cleaned up properly, even if an error occurs."
       ],
       outcome: "Prevent program crashes with robust error handling.",
     },
@@ -336,6 +451,11 @@ const pythonCurriculum = [
         "Reading and Writing text files",
         "Working with data persistence",
       ],
+      realWorld: [
+        "Reading data from a CSV file for analysis.",
+        "Saving application settings to a configuration file.",
+        "Logging events and errors to a text file."
+      ],
       outcome: "Save and retrieve data from physical files.",
     },
   },
@@ -347,6 +467,11 @@ const pythonCurriculum = [
         "Class & Object concepts",
         "Constructor (__init__)",
         "Inheritance & Encapsulation",
+      ],
+      realWorld: [
+        "Modeling real-world entities like customers, products, and orders.",
+        "Building complex applications with a clear and organized structure.",
+        "Creating reusable components for a GUI framework."
       ],
       outcome: "Model real-world entities using OOP principles.",
     },
@@ -360,6 +485,11 @@ const pythonCurriculum = [
         "ATM System simulation",
         "Contact Book application",
       ],
+      realWorld: [
+        "Applying your Python skills to build a complete, portfolio-ready application.",
+        "Gaining experience with the entire software development lifecycle.",
+        "Demonstrating your abilities to potential employers."
+      ],
       outcome: "Build a complete portfolio-ready application.",
     },
   },
@@ -372,6 +502,11 @@ const pythonCurriculum = [
         "Logic building & Coding exercises",
         "Resume building tips",
       ],
+      realWorld: [
+        "Practicing common Python interview questions.",
+        "Solving coding challenges on platforms like HackerRank and LeetCode.",
+        "Building a strong resume and portfolio to showcase your skills."
+      ],
       outcome: "Gain confidence for Python developer roles.",
     },
   },
@@ -381,14 +516,16 @@ export default function Curriculum() {
   return (
     <section id="curriculum" className="w-full bg-muted/30 py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            📘 Comprehensive Learning Paths
-          </h2>
-          <p className="mt-4 text-lg text-foreground/80">
-            Step-by-step curriculum designed to take you from novice to job-ready in 30 days.
-          </p>
-        </div>
+        <MotionDiv animation="fade-in-up">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+              📘 Comprehensive Learning Paths
+            </h2>
+            <p className="mt-4 text-lg text-foreground/80">
+              Step-by-step curriculum designed to take you from novice to job-ready in 30 days.
+            </p>
+          </div>
+        </MotionDiv>
 
         <div className="mt-12 mx-auto max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Tabs defaultValue="sql" className="w-full">
@@ -451,6 +588,17 @@ function CurriculumAccordion({ data, label }: { data: any[], label: string }) {
                           <h4 className="font-bold text-primary text-sm uppercase tracking-wider">What you will learn</h4>
                           <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none text-foreground/80 text-sm">
                             {item.content.learn.map((point: string, i: number) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <span className="text-accent mt-0.5">●</span>
+                                {point}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="pt-2 border-t border-dashed">
+                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">Real-World Examples</h4>
+                          <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none text-foreground/80 text-sm">
+                            {item.content.realWorld.map((point: string, i: number) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-accent mt-0.5">●</span>
                                 {point}

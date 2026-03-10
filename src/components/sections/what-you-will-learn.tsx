@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Database, Search, Link2, Layers, Sigma, FunctionSquare, Clock, Gauge } from "lucide-react"
+import MotionDiv from "@/components/ui/motion-div";
 
 const topics = [
   { icon: Database, title: "SQL Basics", description: "Core concepts and syntax" },
@@ -16,12 +17,14 @@ export default function WhatYouWillLearn() {
   return (
     <section id="curriculum" className="w-full bg-card py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
+        <MotionDiv animation="fade-in-up">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">What You Will Learn</h2>
           <p className="mt-4 text-lg text-foreground/80">
             Our curriculum is designed to cover the entire spectrum of SQL skills required in the industry today.
           </p>
         </div>
+        </MotionDiv>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {topics.map((topic, index) => (
             <Card key={index} className="group flex flex-col items-center text-center p-6 transition-all duration-300 hover:bg-accent/10 hover:-translate-y-2 hover:shadow-xl">

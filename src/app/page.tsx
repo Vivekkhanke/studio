@@ -4,7 +4,6 @@ import Hero from '@/components/sections/hero';
 import CourseOverview from '@/components/sections/course-overview';
 import Curriculum from '@/components/sections/curriculum';
 import MiniProject from '@/components/sections/mini-project';
-import Quote from '@/components/sections/quote';
 import WhyChooseUs from '@/components/sections/why-choose-us';
 import Instructor from '@/components/sections/instructor';
 import Cta from '@/components/sections/cta';
@@ -21,7 +20,6 @@ export default function Home() {
         <CourseOverview />
         <Curriculum />
         <MiniProject />
-        <Quote />
         <WhyChooseUs />
         <Instructor />
         <Cta />

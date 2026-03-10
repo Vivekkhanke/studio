@@ -26,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { useState } from "react"
 
 const formSchema = z.object({
@@ -89,137 +89,144 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full bg-card py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="w-full bg-background py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Have a Question or want to join our course ?</h2>
-          <p className="mt-4 text-lg text-foreground/80">
-            We're here to help. Fill out the form below, and our team will get back to you as soon as possible.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-12 lg:grid-cols-5 lg:gap-8">
-          <div className="lg:col-span-3 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <FormField
-                    control={form.control}
-                    name="fullName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name <span className="text-destructive">*</span></FormLabel>
-                        <FormControl>
-                          <Input placeholder="John Doe" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address <span className="text-destructive">*</span></FormLabel>
-                        <FormControl>
-                          <Input placeholder="you@example.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Contact Information */}
+          <div className="space-y-10 animate-fade-in-up">
+            <div>
+              <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                Interested in the Course? Register for More Information.
+              </h2>
+            </div>
+            <div className="space-y-8">
+              <a href="mailto:vickykhanke123@gmail.com" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
+                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Mail className="h-7 w-7 text-primary" />
                 </div>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <FormField
-                    control={form.control}
-                    name="mobile"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Mobile Number <span className="text-destructive">*</span></FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Subject <span className="text-destructive">*</span></FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a subject" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="course-details">Course Details</SelectItem>
-                            <SelectItem value="enrollment">Enrollment</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div>
+                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Email</h3>
+                  <p className="text-foreground/80 text-lg">vickykhanke123@gmail.com</p>
                 </div>
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message <span className="text-destructive">*</span></FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Tell us what you'd like to know..."
-                          className="min-h-[120px]"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormDescription className="text-right">{field.value.length} / 500</FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" className="w-full sm:w-auto transition-transform duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100" disabled={isSubmitting}>
-                  {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {isSubmitting ? 'Sending...' : 'Submit Query'}
-                </Button>
-              </form>
-            </Form>
+              </a>
+              <a href="tel:+919130367814" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
+                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Phone className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Phone</h3>
+                  <p className="text-foreground/80 text-lg">+91 9130367814</p>
+                </div>
+              </a>
+              <div className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
+                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <Clock className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Support Hours</h3>
+                  <p className="text-foreground/80 text-lg">Monday - Friday: 10:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <Card className="h-full bg-background transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <CardHeader>
-                    <CardTitle className="font-headline text-primary">Contact Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                    <div className="flex items-start gap-4">
-                        <Mail className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                        <div>
-                            <h3 className="font-semibold">Email Us</h3>
-                            <a href="mailto:vickykhanke123@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">vickykhanke123@gmail.com</a>
-                        </div>
+
+          {/* Contact Form */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <Card className="h-full p-8 shadow-xl bg-card/50 border-2 border-primary/10">
+              <CardContent className="p-0">
+                <h2 className="font-headline text-3xl font-bold text-primary mb-8">Register Here</h2>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name <span className="text-destructive">*</span></FormLabel>
+                          <FormControl>
+                            <Input placeholder="John Doe" {...field} className="h-12"/>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email <span className="text-destructive">*</span></FormLabel>
+                            <FormControl>
+                              <Input placeholder="you@example.com" {...field} className="h-12"/>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="mobile"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Mobile No. <span className="text-destructive">*</span></FormLabel>
+                            <FormControl>
+                              <Input placeholder="+91 1234567890" {...field} className="h-12"/>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
-                     <div className="flex items-start gap-4">
-                        <Phone className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                        <div>
-                            <h3 className="font-semibold">Call Us</h3>
-                            <a href="tel:+919130367814" className="text-foreground/80 hover:text-primary transition-colors">9130367814</a>
-                        </div>
-                    </div>
-                     <div className="flex items-start gap-4">
-                        <Clock className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-                        <div>
-                            <h3 className="font-semibold">Support Hours</h3>
-                            <p className="text-foreground/80">Monday - Friday</p>
-                            <p className="text-foreground/80">10:00 AM - 6:00 PM</p>
-                        </div>
-                    </div>
-                </CardContent>
+                    <FormField
+                      control={form.control}
+                      name="subject"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Subject <span className="text-destructive">*</span></FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="h-12">
+                                <SelectValue placeholder="Select a subject" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="course-inquiry">Course Inquiry</SelectItem>
+                              <SelectItem value="enrollment">Enrollment</SelectItem>
+                              <SelectItem value="technical-support">Technical Support</SelectItem>
+                              <SelectItem value="feedback">Feedback</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Message <span className="text-destructive">*</span></FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Tell us how we can help..."
+                              className="min-h-[140px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormDescription className="text-right text-xs pt-1 pr-1">{field.value.length} / 500</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <Button type="submit" size="lg" className="w-full transition-transform duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100 font-bold text-lg" disabled={isSubmitting}>
+                      {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+                      {isSubmitting ? 'Registering...' : 'Register'}
+                    </Button>
+                  </form>
+                </Form>
+              </CardContent>
             </Card>
           </div>
         </div>
