@@ -95,7 +95,7 @@ export default function CourseOverview() {
                   Limited Time Offer: 50% OFF!
                 </h3>
                 <p className="mt-1 text-foreground/80">
-                  Enroll now and get the complete course for just ₹2999 per
+                  Enroll now and get the complete course for just 2999 per
                   subject. This offer is for a limited time only!
                 </p>
               </MotionDiv>
