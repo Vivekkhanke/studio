@@ -130,8 +130,8 @@ export default function CourseOverview() {
                     <div>
                       <p className="font-semibold text-base">Course Fee</p>
                        <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-primary">₹2999 only per subject</span>
-                        <span className="text-md font-medium text-muted-foreground line-through">₹6000</span>
+                        <span className="text-2xl font-bold text-primary">2999 only per subject</span>
+                        <span className="text-md font-medium text-muted-foreground line-through">6000</span>
                     </div>
                     </div>
                   </div>
