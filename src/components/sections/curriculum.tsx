@@ -217,18 +217,21 @@ const sqlCurriculum = [
     },
     {
         emoji: "🎓",
-        title: "Module 12: Interview & Certification Guidance",
+        title: "Module 12: Interview, Resume & Certification",
         content: {
         learn: [
             "Mock interview",
             "Certifications Guidance",
+            "Resume building tips",
+            "LinkedIn profile optimization",
+            "Get a course completion certificate",
         ],
         realWorld: [
           "Practicing common SQL interview questions.",
           "Preparing for industry certifications like Microsoft's MTA or Oracle's OCA.",
           "Building a strong portfolio to showcase your SQL skills."
         ],
-        outcome: "Gain the confidence to ace technical interviews and earn industry-recognized certifications.",
+        outcome: "Gain the confidence to ace technical interviews, create a standout resume, and earn industry-recognized certifications.",
         },
     },
 ];
@@ -495,19 +498,21 @@ const pythonCurriculum = [
   },
   {
     emoji: "💼",
-    title: "Module 16: Interview Preparation",
+    title: "Module 16: Interview, Resume & Certification",
     content: {
       learn: [
         "Common Python interview Q&A",
         "Logic building & Coding exercises",
         "Resume building tips",
+        "LinkedIn profile optimization",
+        "Get a course completion certificate",
       ],
       realWorld: [
         "Practicing common Python interview questions.",
         "Solving coding challenges on platforms like HackerRank and LeetCode.",
         "Building a strong resume and portfolio to showcase your skills."
       ],
-      outcome: "Gain confidence for Python developer roles.",
+      outcome: "Gain confidence for Python developer roles, create a standout resume, and get certified.",
     },
   },
 ];

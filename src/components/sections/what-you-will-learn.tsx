@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Database, Search, Link2, Layers, Sigma, FunctionSquare, Clock, Gauge } from "lucide-react"
+import { Database, Search, Link2, Layers, Sigma, FunctionSquare, Clock, Gauge, Award } from "lucide-react"
 import MotionDiv from "@/components/ui/motion-div";
 
 const topics = [
@@ -11,6 +11,7 @@ const topics = [
   { icon: FunctionSquare, title: "Functions", description: "Window and advanced functions" },
   { icon: Clock, title: "Real-time Scenarios", description: "Applying SQL to business problems" },
   { icon: Gauge, title: "Query Optimization", description: "Writing efficient, fast queries" },
+  { icon: Award, title: "Certification", description: "Get certified upon completion" },
 ]
 
 export default function WhatYouWillLearn() {

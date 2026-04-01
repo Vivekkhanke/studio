@@ -17,6 +17,7 @@ import {
   Users,
   IndianRupee,
   BarChart,
+  Award
 } from 'lucide-react';
 import React from 'react';
 
@@ -45,6 +46,11 @@ const overviewItems = [
     icon: Users,
     label: 'Who is this for',
     value: 'Students & Professionals',
+  },
+  {
+    icon: Award,
+    label: 'Certification',
+    value: 'Get course completion certified',
   },
 ];
 
@@ -95,7 +101,7 @@ export default function CourseOverview() {
                   Limited Time Offer: 50% OFF!
                 </h3>
                 <p className="mt-1 text-foreground/80">
-                  Enroll now and get the complete course for just 2999 per
+                  Enroll now and get the complete course for just 3999 per
                   subject. This offer is for a limited time only!
                 </p>
               </MotionDiv>
@@ -130,7 +136,7 @@ export default function CourseOverview() {
                     <div>
                       <p className="font-semibold text-base">Course Fee</p>
                        <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-primary">2999 only per subject</span>
+                        <span className="text-2xl font-bold text-primary">3999 only per subject</span>
                         <span className="text-md font-medium text-muted-foreground line-through">6000</span>
                     </div>
                     </div>

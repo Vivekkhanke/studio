@@ -5,7 +5,7 @@ import React from "react";
 export default function AnnouncementBar() {
   const announcementText = (
     <span className="whitespace-nowrap px-4">
-      <span role="img" aria-label="megaphone" className="mr-2">📢</span>Upcoming Batches Update → Enroll Now | Batch Starts from 10th March
+      <span role="img" aria-label="megaphone" className="mr-2">📢</span>Upcoming Batches Update → Enroll Now | Batch Starts from 10th April
     </span>
   );
 
