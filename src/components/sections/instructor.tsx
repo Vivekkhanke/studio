@@ -38,6 +38,10 @@ export default function Instructor() {
                     <Briefcase className="h-4 w-4 text-accent"/>
                     <span>Developer</span>
                    </div>
+                   <div className="flex items-center gap-2">
+                    <Star className="h-4 w-4 text-accent"/>
+                    <span>50+ Students Mentored</span>
+                   </div>
                 </div>
                 <div className="mt-6">
                   <Link href="https://www.linkedin.com/in/vivek-khanke/" className="inline-flex items-center gap-2 text-primary transition-colors hover:text-accent">
