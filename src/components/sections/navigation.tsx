@@ -55,7 +55,7 @@ export default function Navigation() {
           <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
             <Logo />
             <div className="flex flex-col">
-              <span>BeginnerToPro</span>
+              <span>BeginnerToPro+</span>
               <span className="text-xs font-light tracking-widest">Elite Programming</span>
             </div>
           </Link>
@@ -88,7 +88,7 @@ export default function Navigation() {
         <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
           <Logo />
           <div className="flex flex-col">
-            <span>BeginnerToPro</span>
+            <span>BeginnerToPro+</span>
             <span className="text-xs font-light tracking-widest">Elite Programming</span>
           </div>
         </Link>
@@ -118,7 +118,7 @@ export default function Navigation() {
                   <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
                     <Logo />
                     <div className="flex flex-col">
-                      <span>BeginnerToPro</span>
+                      <span>BeginnerToPro+</span>
                       <span className="text-xs font-light tracking-widest">Elite Programming</span>
                     </div>
                   </Link>

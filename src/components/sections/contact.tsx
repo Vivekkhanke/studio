@@ -100,13 +100,13 @@ export default function Contact() {
               </h2>
             </div>
             <div className="space-y-8">
-              <a href="mailto:vickykhanke123@gmail.com" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
+              <a href="mailto:beginnertoproplus@gmail.com" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
                 <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
                   <Mail className="h-7 w-7 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Email</h3>
-                  <p className="text-white/80 text-lg">vickykhanke123@gmail.com</p>
+                  <p className="text-white/80 text-lg">beginnertoproplus@gmail.com</p>
                 </div>
               </a>
               <a href="tel:+919130367814" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">

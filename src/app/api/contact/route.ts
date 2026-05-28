@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     });
 
     const {fullName, email, mobile, subject, message} = validatedFields.data;
-    const recipientEmail = 'vickykhanke123@gmail.com';
+    const recipientEmail = 'beginnertoproplus@gmail.com';
     const emailSubject = subjectMappings[subject] || 'Python & SQL | New Query';
 
     const mailOptions = {

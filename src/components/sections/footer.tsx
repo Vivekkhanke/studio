@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
           <div>
-            <h3 className="text-lg font-semibold">BeginnerToPro</h3>
+            <h3 className="text-lg font-semibold">BeginnerToPro+</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Professional structural bootcamps designed to elevate programming capabilities for ambitious learners.
             </p>
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} BeginnerToPro. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} BeginnerToPro+. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
