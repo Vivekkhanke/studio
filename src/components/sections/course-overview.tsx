@@ -11,46 +11,48 @@ import {
 import { Button } from '@/components/ui/button';
 import MotionDiv from '@/components/ui/motion-div';
 import {
-  Calendar,
   Clock,
   Monitor,
   Users,
   IndianRupee,
   BarChart,
-  Award
+  Award,
+  CheckCircle2,
+  FileText,
+  Video,
+  InfinityIcon,
 } from 'lucide-react';
 import React from 'react';
 
-const overviewItems = [
+const whatYouWillLearn = [
+  'Master Python fundamentals from scratch',
+  'Write complex SQL queries with confidence',
+  'Build real-world projects to showcase your skills',
+  'Understand database design and management',
+  'Learn data analysis and visualization techniques',
+  'Get certified and boost your career prospects',
+];
+
+const courseIncludes = [
   {
-    icon: Clock,
-    label: 'Duration',
-    value: '30+ Days',
+    icon: Video,
+    text: '40+ hours of on-demand video',
   },
   {
-    icon: Calendar,
-    label: 'Batch Starts',
-    value: '10th March',
+    icon: FileText,
+    text: '50+ articles and resources',
+  },
+  {
+    icon: InfinityIcon,
+    text: 'Full lifetime access',
   },
   {
     icon: Monitor,
-    label: 'Mode',
-    value: 'Online',
-  },
-  {
-    icon: BarChart,
-    label: 'Skill Level',
-    value: 'Beginner to Pro',
-  },
-  {
-    icon: Users,
-    label: 'Who is this for',
-    value: 'Students & Professionals',
+    text: 'Access on mobile and desktop',
   },
   {
     icon: Award,
-    label: 'Certification',
-    value: 'Get course completion certified',
+    text: 'Certificate of completion',
   },
 ];
 
@@ -68,103 +70,84 @@ export default function CourseOverview() {
   return (
     <section
       id="overview"
-      className="w-full py-16 md:py-24 lg:py-32 overflow-hidden"
+      className="w-full py-16 md:py-24 lg:py-32 bg-muted/20"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <MotionDiv animation="fade-in" className="mx-auto max-w-3xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Course Overview
-          </h2>
-          <p className="mt-4 text-lg text-foreground/80">
-            Unlock your data potential. Here's everything you need to know about
-            our comprehensive program designed to make you a SQL pro.
-          </p>
-        </MotionDiv>
-        <MotionDiv
-          animation="fade-in"
-          delay={0.2}
-          className="mt-12 flex justify-center"
-        >
-          <Card className="w-full max-w-3xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-2">
-            <CardHeader className="bg-primary p-6 text-primary-foreground">
-              <CardTitle className="font-headline text-2xl">
-                Python & SQL: Zero to Hero
-              </CardTitle>
-              <CardDescription className="text-primary-foreground/80">
-                An intensive, project-based training program to master Python and
-                SQL.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-6">
-              <MotionDiv animation="fade-in" delay={0.4} className="mb-8 text-center">
-                <h3 className="font-headline text-2xl font-bold uppercase text-destructive animate-pulse">
-                  Limited Time Offer: 50% OFF!
-                </h3>
-                <p className="mt-1 text-foreground/80">
-                  Enroll now and get the complete course for just 3999 per
-                  subject. This offer is for a limited time only!
+        <div className="grid lg:grid-cols-3 lg:gap-8">
+          <div className="lg:col-span-2">
+            <MotionDiv animation="fade-in">
+              <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl mb-6">
+                Python & SQL: From Zero to Hero
+              </h2>
+            </MotionDiv>
+            <MotionDiv animation="fade-in" delay={0.2}>
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle className="font-headline text-2xl">What you'll learn</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-foreground/90">
+                    {whatYouWillLearn.map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </MotionDiv>
+            <MotionDiv animation="fade-in" delay={0.4} className="mt-8">
+                <h3 className="font-headline text-2xl font-bold">Course Description</h3>
+                <p className="mt-4 text-foreground/80 leading-relaxed">
+                    Go beyond theory. This course is meticulously crafted for deep
+                    understanding through hands-on practice. You'll work with
+                    real-world scenarios, build a solid foundation in both Python and SQL, and master
+                    advanced query-writing and programming skills. By the end, you'll have a portfolio of projects to prove your expertise.
                 </p>
-              </MotionDiv>
+            </MotionDiv>
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                {overviewItems.map((item, index) => (
-                  <MotionDiv
-                    key={index}
-                    animation="slide-in"
-                    delay={0.2 * (index + 1)}
-                  >
-                    <div
-                      className="group flex items-center gap-4 rounded-lg border bg-background p-4 transition-all duration-300 ease-in-out hover:bg-muted/50 hover:scale-105 transform cursor-pointer"
-                    >
-                      <item.icon className="h-8 w-8 text-accent group-hover:animate-bounce" />
-                      <div>
-                        <p className="font-semibold text-base">{item.label}</p>
-                        <p className="text-foreground/80 text-sm">{item.value}</p>
+          <div className="lg:col-span-1 mt-8 lg:mt-0">
+            <MotionDiv animation="slide-in" delay={0.3} className="lg:sticky lg:top-24">
+              <Card className="overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-1">
+                <CardHeader className="p-0">
+                  <div className="bg-primary p-6 text-primary-foreground">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-4xl font-bold">INR 3999</span>
+                        <span className="text-xl font-medium text-primary-foreground/80 line-through">INR 7999</span>
                       </div>
+                      <div className="text-lg font-bold bg-white/20 text-primary-foreground px-3 py-1.5 rounded-md">50% OFF</div>
                     </div>
-                  </MotionDiv>
-                ))}
-                 <MotionDiv
-                    animation="slide-in"
-                    delay={1.2}
-                    className="lg:col-span-3"
-                  >
-                  <div
-                    className="group flex items-center gap-4 rounded-lg border bg-background p-4 transition-all duration-300 ease-in-out hover:bg-muted/50 hover:scale-105 transform cursor-pointer"
-                  >
-                    <IndianRupee className="h-8 w-8 text-accent group-hover:animate-bounce" />
-                    <div>
-                      <p className="font-semibold text-base">Course Fee</p>
-                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-primary">3999 only per subject</span>
-                        <span className="text-md font-medium text-muted-foreground line-through">6000</span>
-                    </div>
+                     <div className="font-semibold text-primary-foreground/90">
+                      <span>for each course</span>
                     </div>
                   </div>
-                  </MotionDiv>
-              </div>
-
-              <MotionDiv animation="fade-in" delay={1.4} className="text-center">
-                <p className="mt-6 text-foreground/90 leading-relaxed">
-                  Go beyond theory. This course is meticulously crafted for deep
-                  understanding through hands-on practice. You'll work with
-                  real-world scenarios, build a solid foundation, and master
-                  advanced query-writing skills.
-                </p>
-              </MotionDiv>
-            </CardContent>
-            <CardFooter className="bg-muted/50 p-6">
-              <Button
-                asChild
-                className="w-full text-lg"
-              >
-                <a href="#contact" onClick={handleScroll}>
-                  Enroll Now & Claim Your 50% Discount
-                </a>
-              </Button>
-            </CardFooter>
-          </Card>
-        </MotionDiv>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <Button asChild className="w-full text-lg font-bold h-12 transition-transform duration-300 ease-in-out hover:scale-105">
+                    <a href="#contact" onClick={handleScroll}>Enroll Now</a>
+                  </Button>
+                  <div className="mt-6">
+                    <h3 className="font-headline text-lg font-semibold mb-4">This course includes:</h3>
+                    <ul className="space-y-3 text-foreground/90">
+                        {courseIncludes.map((item, index) => (
+                            <li key={index} className="flex items-center gap-3">
+                                <item.icon className="h-5 w-5 text-primary flex-shrink-0" />
+                                <span>{item.text}</span>
+                            </li>
+                        ))}
+                    </ul>
+                  </div>
+                </CardContent>
+                <CardFooter className="bg-muted/50 p-4 text-center">
+                    <p className="text-sm text-foreground/70">Get a certificate of completion and boost your resume!</p>
+                </CardFooter>
+              </Card>
+            </MotionDiv>
+          </div>
+        </div>
       </div>
     </section>
   );

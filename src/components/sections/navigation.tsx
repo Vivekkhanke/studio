@@ -2,10 +2,11 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X, Database } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import { Logo } from "@/components/ui/logo"
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -51,9 +52,12 @@ export default function Navigation() {
     return (
       <header className={`sticky top-0 z-50 w-full transition-all duration-300`}>
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
-            <Database className="h-6 w-6" />
-            <span>Python & SQL</span>
+          <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
+            <Logo />
+            <div className="flex flex-col">
+              <span>BeginnerToPro</span>
+              <span className="text-xs font-light tracking-widest">Elite Programming</span>
+            </div>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
             {navLinks.map((link) => (
@@ -81,9 +85,12 @@ export default function Navigation() {
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-card/80 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
-          <Database className="h-6 w-6" />
-          <span>Python & SQL</span>
+        <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
+          <Logo />
+          <div className="flex flex-col">
+            <span>BeginnerToPro</span>
+            <span className="text-xs font-light tracking-widest">Elite Programming</span>
+          </div>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
           {navLinks.map((link) => (
@@ -108,9 +115,12 @@ export default function Navigation() {
             <SheetContent side="right" className="w-[300px] bg-card">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b p-4">
-                  <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-primary">
-                    <Database className="h-6 w-6" />
-                    <span>Python & SQL</span>
+                  <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
+                    <Logo />
+                    <div className="flex flex-col">
+                      <span>BeginnerToPro</span>
+                      <span className="text-xs font-light tracking-widest">Elite Programming</span>
+                    </div>
                   </Link>
                   <SheetClose asChild>
                       <Button variant="ghost" size="icon">

@@ -95,7 +95,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-10 animate-fade-in-up">
             <div>
-              <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+              <h2 className="font-headline text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Interested in the Course? Register for More Information.
               </h2>
             </div>
@@ -105,8 +105,8 @@ export default function Contact() {
                   <Mail className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Email</h3>
-                  <p className="text-foreground/80 text-lg">vickykhanke123@gmail.com</p>
+                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Email</h3>
+                  <p className="text-white/80 text-lg">vickykhanke123@gmail.com</p>
                 </div>
               </a>
               <a href="tel:+919130367814" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
@@ -114,8 +114,8 @@ export default function Contact() {
                   <Phone className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Phone</h3>
-                  <p className="text-foreground/80 text-lg">+91 9130367814</p>
+                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Phone</h3>
+                  <p className="text-white/80 text-lg">+91 9130367814</p>
                 </div>
               </a>
               <div className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
@@ -123,8 +123,8 @@ export default function Contact() {
                   <Clock className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-primary transition-colors">Support Hours</h3>
-                  <p className="text-foreground/80 text-lg">Monday - Friday: 10:00 AM - 6:00 PM</p>
+                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Support Hours</h3>
+                  <p className="text-white/80 text-lg">Monday - Friday: 10:00 AM - 6:00 PM</p>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function Contact() {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <Card className="h-full p-8 shadow-xl bg-card/50 border-2 border-primary/10">
               <CardContent className="p-0">
-                <h2 className="font-headline text-3xl font-bold text-primary mb-8">Register Here</h2>
+                <h2 className="font-headline text-3xl font-bold text-white mb-8">Register Here</h2>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
