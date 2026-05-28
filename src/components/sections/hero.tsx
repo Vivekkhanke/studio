@@ -44,7 +44,7 @@ export default function Hero() {
             <Button
               size="lg"
               asChild
-              className="transition-transform duration-300 ease-in-out hover:scale-105"
+              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
             >
               <a href="#contact" onClick={handleScroll}>
                 Enroll Now
@@ -54,9 +54,17 @@ export default function Hero() {
               size="lg"
               asChild
               variant="secondary"
-              className="transition-transform duration-300 ease-in-out hover:scale-105"
+              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
             >
               <a href="tel:+919130367814">Request a call</a>
+            </Button>
+            <Button
+              size="lg"
+              asChild
+              variant="secondary"
+              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
+            >
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjWyefM9WPfzg9KgEN9NuyK2DNTIo3jpft6WKpwjKBAbRnqw/viewform?usp=send_form" target="_blank">Request for Demo</a>
             </Button>
           </MotionDiv>
           <MotionDiv
