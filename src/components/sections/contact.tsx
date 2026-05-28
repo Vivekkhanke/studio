@@ -67,7 +67,7 @@ export default function Contact() {
       if (response.ok) {
         toast({
           title: "Message Sent!",
-          description: "Thanks for reaching out. We'll get back to you shortly.",
+          description: "Thanks for reaching out. We\'ll get back to you shortly.",
         });
         form.reset();
       } else {
@@ -115,7 +115,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Phone</h3>
-                  <p className="text-white/80 text-lg">+91 9130367814</p>
+                  <p className="text-white/80 text-lg">Click to call</p>
                 </div>
               </a>
               <div className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
