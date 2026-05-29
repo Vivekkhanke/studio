@@ -44,7 +44,7 @@ export default function Hero() {
             <Button
               size="lg"
               asChild
-              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
+              className="transition-transform duration-300 ease-in-out hover:scale-105"
             >
               <a href="#contact" onClick={handleScroll}>
                 Enroll Now
@@ -54,7 +54,7 @@ export default function Hero() {
               size="lg"
               asChild
               variant="secondary"
-              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
+              className="transition-transform duration-300 ease-in-out hover:scale-105"
             >
               <a href="tel:+919130367814">Request a call</a>
             </Button>
@@ -62,7 +62,7 @@ export default function Hero() {
               size="lg"
               asChild
               variant="secondary"
-              className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
+              className="transition-transform duration-300 ease-in-out hover:scale-105"
             >
               <a href="https://docs.google.com/forms/d/12s5ONe9wOQagevZVbT1HSy_awbKgSCNTp3rTc_zDgNo/viewform?edit_requested=true&pli=1" target="_blank">Request for Demo</a>
             </Button>
