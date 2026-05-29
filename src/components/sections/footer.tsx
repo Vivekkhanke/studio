@@ -24,6 +24,84 @@ const cardVariants = {
   }),
 };
 
+const AnimatedFooterLogo = () => (
+  <motion.div 
+    className="relative flex items-center justify-start w-full max-w-sm cursor-pointer"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+    whileHover="hover"
+  >
+    <motion.svg
+      viewBox="0 0 320 60"
+      className="w-full h-auto"
+      initial="initial"
+      animate="animate"
+    >
+      <defs>
+        <linearGradient id="logo-blue-grad">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#60a5fa" />
+        </linearGradient>
+        <linearGradient id="logo-purple-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop stopColor="#60a5fa" />
+          <stop offset="100%" stopColor="#a78bfa" />
+        </linearGradient>
+        <motion.linearGradient id="light-sweep-grad" x1="-1" y1="0" x2="1" y2="0">
+            <stop stopColor="#a78bfa" stopOpacity="0" />
+            <stop stopColor="#a78bfa" />
+            <stop offset="1" stopColor="#a78bfa" stopOpacity="0" />
+        </motion.linearGradient>
+        <filter id="logo-glow">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+            <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+      </defs>
+
+      {/* Logo Icon Group with floating and hover effects */}
+      <motion.g 
+        variants={{
+          initial: { y: 0 },
+          hover: { y: -5 },
+          animate: { y: [0, -3, 0] }
+        }}
+        transition={{ 
+          hover: { type: 'spring', stiffness: 300 },
+          animate: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
+        }}
+      >
+        {/* Bold 'B' shape */}
+        <path d="M10 50 V 10 H 25 c 12 0 12 18 0 18 H 10 M 20 28 h 8 c 15 0 15 22 0 22 H 10" stroke="url(#logo-purple-grad)" strokeWidth="5" fill="none" />
+        
+        {/* Integrated Arrow */}
+        <motion.path d="M30 10 L 40 0 L 50 10 H 30 Z" fill="url(#logo-purple-grad)" >
+            <motion.path d="M30 10 L 40 0 L 50 10 H 30 Z" fill="url(#light-sweep-grad)" initial={{x: -40}} animate={{x: 40}} transition={{repeat: Infinity, duration: 3, ease: 'linear'}}/>
+        </motion.path>
+
+        {/* Bar graph elements */}
+        <rect x="15" y="36" width="4" height="9" rx="1" fill="url(#logo-blue-grad)"/>
+        <rect x="22" y="32" width="4" height="13" rx="1" fill="url(#logo-blue-grad)"/>
+        <rect x="29" y="38" width="4" height="7" rx="1" fill="url(#logo-blue-grad)"/>
+      </motion.g>
+
+      {/* Text with shimmer and glow */}
+      <motion.g filter="url(#logo-glow)">
+        <text x="65" y="40" fontFamily="Poppins, sans-serif" fontSize="26" fontWeight="bold">
+          <tspan fill="url(#logo-blue-grad)">Beginner</tspan>
+          <tspan dx="5" fill="url(#logo-purple-grad)">ToPro+</tspan>
+        </text>
+        <motion.text x="65" y="40" fontFamily="Poppins, sans-serif" fontSize="26" fontWeight="bold" fill="url(#light-sweep-grad)" initial={{x: -300}} animate={{x: 300}} transition={{repeat: Infinity, duration: 4, ease: 'linear', delay: 1}}>
+            <tspan>Beginner</tspan>
+            <tspan dx="5">ToPro+</tspan>
+        </motion.text>
+      </motion.g>
+    </motion.svg>
+  </motion.div>
+);
+
 export default function Footer() {
   return (
     <footer className="relative w-full bg-black text-gray-300 pt-16 md:pt-20 pb-10 overflow-hidden tech-grid-background">
@@ -38,8 +116,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           {/* Brand & Rating Section */}
           <div className="md:col-span-4">
-            <h3 className="text-2xl font-bold text-white mb-2">BeginnerToPro+</h3>
-            <p className="text-sm text-gray-400 mb-4">Professional structured bootcamps designed to elevate programming capabilities for ambitious learners.</p>
+            <AnimatedFooterLogo />
+            <p className="text-sm text-gray-400 mb-4 mt-4">Professional structured bootcamps designed to elevate programming capabilities for ambitious learners.</p>
             <div className="flex items-center">
               <span className="text-yellow-400 text-lg mr-2">★★★★☆</span>
               <p className="text-sm font-semibold">4.9 Cumulative Platform Rating</p>
@@ -91,7 +169,7 @@ export default function Footer() {
 
         {/* Bottom Line */}
         <div className="border-t border-gray-800/50 pt-8 text-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} SQLDB. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} BeginnerToPro+. All Rights Reserved.</p>
           <p className="mt-1">Built for Future Data Engineers</p>
         </div>
       </motion.div>
