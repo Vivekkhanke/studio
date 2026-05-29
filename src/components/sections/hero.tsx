@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Rocket, Medal, Gem } from 'lucide-react';
 import MotionDiv from '@/components/ui/motion-div';
+import AnimatedHeadlinePremium from '@/components/ui/animated-headline-premium';
 
 export default function Hero() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -24,11 +25,10 @@ export default function Hero() {
     >
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
-          <MotionDiv animation="slide-in" delay={0.1}>
-            <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-              Master SQL & Python from Scratch with Real-World Projects
-            </h1>
-          </MotionDiv>
+          <AnimatedHeadlinePremium
+            text="Master SQL & Python from Scratch with Real-World Projects"
+            className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+          />
           <MotionDiv animation="slide-in" delay={0.2}>
             <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
               Join our intensive 30-day course and gain hands-on mastery through
