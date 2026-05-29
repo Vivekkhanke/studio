@@ -64,7 +64,7 @@ export default function Hero() {
               variant="secondary"
               className="transition-transform duration-300 ease-in-out hover:scale-105 animate-pulse-glow"
             >
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjWyefM9WPfzg9KgEN9NuyK2DNTIo3jpft6WKpwjKBAbRnqw/viewform?usp=send_form" target="_blank">Request for Demo</a>
+              <a href="https://docs.google.com/forms/d/12s5ONe9wOQagevZVbT1HSy_awbKgSCNTp3rTc_zDgNo/viewform?edit_requested=true&pli=1" target="_blank">Request for Demo</a>
             </Button>
           </MotionDiv>
           <MotionDiv
