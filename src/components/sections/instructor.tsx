@@ -91,7 +91,7 @@ export default function Instructor() {
                   </MotionDiv>
                   <MotionDiv animation="fade-in-up" delay={0.9}>
                     <p className="mt-4 text-foreground/80">
-                    Experienced QA and Test Automation professional with 11+ years of expertise in Functional and Automation Testing across Web, Java, Desktop, and Mainframe applications. Skilled in Selenium Java, BDD (Cucumber), Tosca, TestNG, Postman API Testing, Jira, Confluence, and GitHub.
+                    Payments QA Specialist with 11+ years of experience in Functional and Automation Testing, specializing in GPP SP, GPP Classic, Fintech, and Digital Payments. Expertise in ISO 20022 (MT/MX), API Testing, Integration Testing, NACHA, and FEDWIRE payment systems. Skilled in Selenium Java, BDD (Cucumber), Tricentis Tosca, TestNG, Postman, Jira, Confluence, and GitHub, with extensive experience across Web, Java, Desktop, and Mainframe applications. Strong domain knowledge in BFSI and Telecom, working in Agile and Waterfall environments.
                     </p>
                   </MotionDiv>
                   <MotionDiv animation="fade-in-up" delay={1.0}>
