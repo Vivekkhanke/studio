@@ -2,11 +2,23 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Logo } from "@/components/ui/logo"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -16,6 +28,14 @@ const navLinks = [
   { href: "#instructor", label: "Instructor" },
   { href: "#contact", label: "Contact" },
 ]
+
+const courseLinks = [
+    { href: "#", label: "Oracle SQL/PLSQL" },
+    { href: "#", label: "Python" },
+    { href: "#", label: "JAVA" },
+    { href: "#", label: "Software Testing - Payments/Banking" },
+]
+
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = React.useState(false)
@@ -65,6 +85,18 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary focus:outline-none">
+                Courses <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {courseLinks.map((link) => (
+                  <DropdownMenuItem key={link.label} asChild>
+                    <Link href={link.href}>{link.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
           <div className="hidden items-center gap-2 md:flex">
             <Button asChild>
@@ -98,6 +130,18 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
+           <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary focus:outline-none">
+                Courses <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {courseLinks.map((link) => (
+                  <DropdownMenuItem key={link.label} asChild>
+                    <Link href={link.href}>{link.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
         </nav>
         <div className="hidden items-center gap-2 md:flex">
           <Button asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
@@ -136,6 +180,20 @@ export default function Navigation() {
                       </Link>
                     </SheetClose>
                   ))}
+                  <Collapsible>
+                    <CollapsibleTrigger className="flex items-center justify-between w-full text-lg text-foreground/80 transition-colors hover:text-primary">
+                      Courses <ChevronDown className="h-4 w-4" />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="pl-4">
+                      {courseLinks.map((link) => (
+                        <SheetClose key={link.label} asChild>
+                          <Link href={link.href} onClick={handleScrollTo} className="block py-2 text-lg text-foreground/80 transition-colors hover:text-primary">
+                            {link.label}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </CollapsibleContent>
+                  </Collapsible>
                 </nav>
                 <div className="mt-auto flex flex-col gap-2 border-t p-4">
                   <SheetClose asChild>
