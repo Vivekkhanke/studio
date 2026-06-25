@@ -76,7 +76,7 @@ export default function Navigation() {
             <Logo />
             <div className="flex flex-col">
               <span>BeginnerToPro+</span>
-              <span className="text-xs font-light tracking-widest">Elite Programming</span>
+              <span className="text-xs font-light tracking-widest">Online Classes</span>
             </div>
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
@@ -121,7 +121,7 @@ export default function Navigation() {
           <Logo />
           <div className="flex flex-col">
             <span>BeginnerToPro+</span>
-            <span className="text-xs font-light tracking-widest">Elite Programming</span>
+            <span className="text-xs font-light tracking-widest">Online Classes</span>
           </div>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
@@ -163,7 +163,7 @@ export default function Navigation() {
                     <Logo />
                     <div className="flex flex-col">
                       <span>BeginnerToPro+</span>
-                      <span className="text-xs font-light tracking-widest">Elite Programming</span>
+                      <span className="text-xs font-light tracking-widest">Online Classes</span>
                     </div>
                   </Link>
                   <SheetClose asChild>
