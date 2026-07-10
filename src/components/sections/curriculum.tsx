@@ -517,6 +517,285 @@ const pythonCurriculum = [
   },
 ];
 
+const javaCurriculum = [
+    {
+        emoji: "📅",
+        title: "Module 1: Introduction to Java",
+        content: {
+            learn: [
+                "What is Java?",
+                "History & Features of Java",
+                "Java Editions (SE, EE, ME)",
+                "JDK, JRE & JVM",
+                "Java Architecture",
+                "Installing Java & IntelliJ IDEA / Eclipse",
+                "First Java Program (Hello World)",
+                "Compilation & Execution Process",
+            ],
+            realWorld: [
+                "Setting up a local Java development environment.",
+                "Writing and running a basic console application.",
+                "Understanding the platform-independent nature of Java."
+            ],
+            outcome: "You will be able to write, compile, and run basic Java programs and understand the fundamentals of the Java ecosystem.",
+        },
+    },
+    {
+        emoji: "📦",
+        title: "Module 2: Java Basics",
+        content: {
+            learn: [
+                "Variables and Data Types",
+                "Keywords, Identifiers, and Literals",
+                "Type Casting",
+                "Constants (final)",
+                "Scanner Class (User Input)",
+                "Practical: Student & Employee Information, Simple Calculator",
+            ],
+            realWorld: [
+                "Storing and manipulating user data.",
+                "Performing basic calculations.",
+                "Creating simple interactive command-line applications."
+            ],
+            outcome: "You will understand how Java stores data and be able to build interactive console-based programs.",
+        },
+    },
+    {
+        emoji: "➕",
+        title: "Module 3: Operators",
+        content: {
+            learn: [
+                "Arithmetic, Relational, Logical Operators",
+                "Assignment, Unary, Ternary Operators",
+                "Practical: Even/Odd, Largest Number, Grade Calculator",
+            ],
+            realWorld: [
+                "Implementing business logic and rules.",
+                "Performing complex comparisons and calculations.",
+                "Controlling program flow based on conditions."
+            ],
+            outcome: "You will be able to use a wide range of operators to perform calculations and make logical decisions in your code.",
+        },
+    },
+    {
+        emoji: "⚖️",
+        title: "Module 4: Conditional Statements",
+        content: {
+            learn: [
+                "if, if-else, else-if Ladder",
+                "Nested if",
+                "switch-case",
+                "Practical: ATM Menu, Voting Eligibility, Bill Calculators",
+            ],
+            realWorld: [
+                "Building menu-driven applications.",
+                "Implementing validation and decision-making processes.",
+                "Creating programs that respond differently to various inputs."
+            ],
+            outcome: "You will be able to control the flow of your programs using conditional logic to handle different scenarios.",
+        },
+    },
+    {
+        emoji: "🔄",
+        title: "Module 5: Loops",
+        content: {
+            learn: [
+                "for Loop, while Loop, do-while Loop",
+                "break and continue",
+                "Nested Loops",
+                "Practical: Tables, Factorial, Prime, Fibonacci, Patterns",
+            ],
+            realWorld: [
+                "Processing lists of data.",
+                "Automating repetitive tasks.",
+                "Generating patterns and sequences."
+            ],
+            outcome: "You will be able to automate repetitive tasks and process collections of data efficiently.",
+        },
+    },
+    {
+        emoji: "📋",
+        title: "Module 6: Arrays",
+        content: {
+            learn: [
+                "One-Dimensional and Two-Dimensional Arrays",
+                "Array Operations (Searching, Sorting)",
+                "Bubble Sort algorithm",
+                "Practical: Find Max/Min, Average, Matrix Addition",
+            ],
+            realWorld: [
+                "Storing and processing collections of similar data.",
+                "Implementing basic data analysis tasks.",
+                "Working with tabular data structures."
+            ],
+            outcome: "You will be able to manage and manipulate fixed-size collections of data using arrays.",
+        },
+    },
+    {
+        emoji: "⚙️",
+        title: "Module 7: Methods",
+        content: {
+            learn: [
+                "Creating Methods and Parameters",
+                "Return Types",
+                "Static Methods",
+                "Method Overloading",
+                "Practical: Calculator using Methods, Salary Calculation",
+            ],
+            realWorld: [
+                "Breaking down complex problems into smaller, reusable pieces of code.",
+                "Improving code organization and readability.",
+                "Creating modular and maintainable applications."
+            ],
+            outcome: "You will be able to write modular, reusable, and organized code by creating and using methods.",
+        },
+    },
+    {
+        emoji: "🏗️",
+        title: "Module 8: Object-Oriented Programming (OOP)",
+        content: {
+            learn: [
+                "Class and Object",
+                "Constructor",
+                "this Keyword",
+                "static Keyword",
+                "Practical: Student Class, Employee Class, Bank Account Class",
+            ],
+            realWorld: [
+                "Modeling real-world entities like users, products, or accounts.",
+                "Building the foundation for complex applications.",
+                "Understanding the core principles of modern software development."
+            ],
+            outcome: "You will be able to model real-world problems using classes and objects, the fundamental building blocks of OOP.",
+        },
+    },
+    {
+        emoji: "🧩",
+        title: "Module 9: OOP Concepts",
+        content: {
+            learn: [
+                "Encapsulation",
+                "Inheritance",
+                "Polymorphism",
+                "Abstraction and Interfaces",
+                "Practical: Vehicle Management, Student Result System",
+            ],
+            realWorld: [
+                "Building flexible and extensible software systems.",
+                "Creating reusable components and libraries.",
+                "Developing complex applications with a clear, maintainable structure."
+            ],
+            outcome: "You will master the core principles of OOP to build scalable, flexible, and maintainable applications.",
+        },
+    },
+    {
+        emoji: "🔤",
+        title: "Module 10: String Handling",
+        content: {
+            learn: [
+                "String, StringBuilder, StringBuffer",
+                "Common String Methods",
+                "Practical: Reverse String, Palindrome, Count Vowels, Word Count",
+            ],
+            realWorld: [
+                "Parsing and manipulating text data.",
+                "Validating user input.",
+                "Working with text-based file formats."
+            ],
+            outcome: "You will be able to efficiently process and manipulate text data using Java's String handling capabilities.",
+        },
+    },
+    {
+        emoji: "⚠️",
+        title: "Module 11: Exception Handling",
+        content: {
+            learn: [
+                "try, catch, finally",
+                "throw, throws",
+                "Practical: Division by Zero, Invalid Age, Login Validation",
+            ],
+            realWorld: [
+                "Building robust applications that can handle unexpected errors.",
+                "Ensuring program stability and reliability.",
+                "Providing better user feedback when errors occur."
+            ],
+            outcome: "You will be able to build resilient applications by gracefully handling runtime errors and exceptions.",
+        },
+    },
+    {
+        emoji: "🗃️",
+        title: "Module 12: Collections Framework",
+        content: {
+            learn: [
+                "ArrayList, LinkedList",
+                "HashSet, HashMap",
+                "Iterator",
+                "Practical: Student List, Employee Records, Product Management",
+            ],
+            realWorld: [
+                "Managing dynamic collections of objects.",
+                "Implementing complex data structures for various use cases.",
+                "Efficiently storing, retrieving, and manipulating data in memory."
+            ],
+            outcome: "You will master Java's powerful Collections Framework to manage dynamic groups of objects effectively.",
+        },
+    },
+    {
+        emoji: "📁",
+        title: "Module 13: File Handling",
+        content: {
+            learn: [
+                "File Class",
+                "FileReader, FileWriter",
+                "BufferedReader, BufferedWriter",
+                "Practical: Reading and writing to student and employee files.",
+            ],
+            realWorld: [
+                "Persisting application data to files.",
+                "Reading configuration from files.",
+                "Importing and exporting data."
+            ],
+            outcome: "You will be able to save and retrieve application data by reading from and writing to files.",
+        },
+    },
+    {
+        emoji: "🚀",
+        title: "Module 14: Java 8 Basics",
+        content: {
+            learn: [
+                "Lambda Expressions (Introduction)",
+                "Functional Interfaces",
+                "Stream API (Basics)",
+                "Practical: Filtering and sorting lists with Streams.",
+            ],
+            realWorld: [
+                "Writing more concise and readable code.",
+                "Processing data in a more declarative way.",
+                "Improving performance with parallel streams (advanced topic)."
+            ],
+            outcome: "You will be able to write modern, functional-style Java code using features like Lambda expressions and the Stream API.",
+        },
+    },
+    {
+        emoji: "🛠️",
+        title: "Module 15: Mini Project",
+        content: {
+            learn: [
+                "Student Management System",
+                "Features: Add, Update, Delete, Search, Display Students",
+                "Tools: Java JDK, IntelliJ/Eclipse, Git/GitHub",
+            ],
+            realWorld: [
+                "Applying all learned concepts to build a complete application.",
+                "Gaining experience in project planning and development.",
+                "Creating a portfolio piece to showcase your skills."
+            ],
+            outcome: "You will solidify your learning by building a complete, portfolio-ready Student Management System from scratch.",
+        },
+    },
+];
+
+
 export default function Curriculum() {
   return (
     <section id="curriculum" className="w-full bg-muted/30 py-16 md:py-24 lg:py-32 overflow-hidden">
@@ -535,7 +814,7 @@ export default function Curriculum() {
         <div className="mt-12 mx-auto max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <Tabs defaultValue="sql" className="w-full">
             <div className="flex justify-center mb-10">
-              <TabsList className="grid w-full max-w-md grid-cols-2 h-14 p-1.5 bg-card/50 rounded-xl border-2 border-primary/20 shadow-inner">
+              <TabsList className="grid w-full max-w-md grid-cols-3 h-14 p-1.5 bg-card/50 rounded-xl border-2 border-primary/20 shadow-inner">
                 <TabsTrigger 
                   value="sql" 
                   className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
@@ -548,6 +827,12 @@ export default function Curriculum() {
                 >
                   Python Path
                 </TabsTrigger>
+                <TabsTrigger 
+                  value="java" 
+                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
+                >
+                  Java Path
+                </TabsTrigger>
               </TabsList>
             </div>
 
@@ -557,6 +842,10 @@ export default function Curriculum() {
 
             <TabsContent value="python" className="animate-fade-in focus-visible:outline-none">
               <CurriculumAccordion data={pythonCurriculum} label="View Full Python Curriculum" />
+            </TabsContent>
+
+            <TabsContent value="java" className="animate-fade-in focus-visible:outline-none">
+              <CurriculumAccordion data={javaCurriculum} label="View Full Java Curriculum" />
             </TabsContent>
           </Tabs>
         </div>
