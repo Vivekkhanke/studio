@@ -74,7 +74,7 @@ export default function Instructor() {
                 <MotionDiv animation="fade-in" delay={0.6}>
                   <Image
                     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMG9mJTIwYSUyMGZlbWFsZXxlbnwwfHx8fDE3MTg3MzQwNTB8MA&ixlib=rb-4.1.0&q=80&w=400"
-                    alt="A professional portrait of the instructor, Pooja M."
+                    alt="A professional portrait of the instructor."
                     width={200}
                     height={200}
                     className="rounded-full border-4 border-card object-cover shadow-lg transition-transform duration-300 hover:scale-105"
@@ -84,25 +84,25 @@ export default function Instructor() {
               <div className="md:w-2/3 flex flex-col">
                 <CardContent className="p-8 flex-grow">
                   <MotionDiv animation="fade-in-up" delay={0.7}>
-                    <h3 className="font-headline text-2xl font-bold text-primary">Pooja M</h3>
+                    <h3 className="font-headline text-2xl font-bold text-primary">Kalyani Lanjewar</h3>
                   </MotionDiv>
                   <MotionDiv animation="fade-in-up" delay={0.8}>
-                    <p className="mt-1 text-white font-semibold">Senior Test Specialist</p>
+                    <p className="mt-1 text-white font-semibold">Java Developer</p>
                   </MotionDiv>
                   <MotionDiv animation="fade-in-up" delay={0.9}>
                     <p className="mt-4 text-foreground/80">
-                    Payments QA Specialist with 11+ years of experience in Functional and Automation Testing, specializing in GPP SP, GPP Classic, Fintech, and Digital Payments. Expertise in ISO 20022 (MT/MX), API Testing, Integration Testing, NACHA, and FEDWIRE payment systems. Skilled in Selenium Java, BDD (Cucumber), Tricentis Tosca, TestNG, Postman, Jira, Confluence, and GitHub, with extensive experience across Web, Java, Desktop, and Mainframe applications. Strong domain knowledge in BFSI and Telecom, working in Agile and Waterfall environments.
+                    Enthusiastic Java developer with a focus on backend development, eager to learn, contribute innovative solutions. Trainer on personal development for teachers and students, skilled in improving teaching quality and learning outcomes. Experienced in Java programming language, specializing in Object-Oriented Programming in C++, Java, and C language fundamentals.
                     </p>
                   </MotionDiv>
                   <MotionDiv animation="fade-in-up" delay={1.0}>
                     <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
                        <div className="flex items-center gap-2">
                         <Briefcase className="h-4 w-4 text-accent"/>
-                        <span>Software Tester / Developer</span>
+                        <span>Java Developer</span>
                        </div>
                        <div className="flex items-center gap-2">
                         <Star className="h-4 w-4 text-accent"/>
-                        <span>11+ Years Experience</span>
+                        <span>4 Years Experience</span>
                        </div>
                        <div className="flex items-center gap-2">
                         <Users className="h-4 w-4 text-accent"/>
