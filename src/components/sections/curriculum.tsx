@@ -515,6 +515,26 @@ const pythonCurriculum = [
       outcome: "Gain confidence for Python developer roles, create a standout resume, and get certified.",
     },
   },
+  {
+    emoji: "⏩",
+    title: "Module 17: Advanced Python: Iterators, Generators, Multithreading & Multiprocessing",
+    content: {
+      learn: [
+        "Creating custom iterators",
+        "Understanding and creating generators",
+        "Introduction to multithreading for concurrent tasks",
+        "Introduction to multiprocessing for parallel execution",
+        "Using `concurrent.futures` for managing threads and processes"
+      ],
+      realWorld: [
+        "Processing large files efficiently with generators.",
+        "Improving UI responsiveness with multithreading.",
+        "Speeding up CPU-bound tasks with multiprocessing.",
+        "Building a web scraper that fetches multiple pages concurrently."
+      ],
+      outcome: "Write efficient, concurrent, and parallel Python code to handle advanced data processing and performance challenges."
+    }
+  }
 ];
 
 const javaCurriculum = [

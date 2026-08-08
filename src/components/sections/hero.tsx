@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <AnimatedHeadlinePremium
-            text="Master SQL & Python from Scratch with Real-World Projects"
+            text="Master SQL, Python & JAVA from Scratch with Real-World Projects"
             className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
           />
           <MotionDiv animation="slide-in" delay={0.2}>
