@@ -1,152 +1,113 @@
-'use client';
-
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import MotionDiv from '@/components/ui/motion-div';
+import SectionHeading from '@/components/ui/section-heading';
 import {
-  Clock,
   Monitor,
-  Users,
-  IndianRupee,
-  BarChart,
   Award,
-  CheckCircle2,
+  Check,
   FileText,
   Video,
   InfinityIcon,
+  ArrowRight,
+  Code2,
+  Database,
+  FolderGit2,
+  Layers,
+  LineChart,
+  BadgeCheck,
 } from 'lucide-react';
-import React from 'react';
 
 const whatYouWillLearn = [
-  'Master Python fundamentals from scratch',
-  'Write complex SQL queries with confidence',
-  'Build real-world projects to showcase your skills',
-  'Understand database design and management',
-  'Learn data analysis and visualization techniques',
-  'Get certified and boost your career prospects',
+  { icon: Code2, text: 'Master Python fundamentals from scratch' },
+  { icon: Database, text: 'Write complex SQL queries with confidence' },
+  { icon: FolderGit2, text: 'Build real-world projects to showcase your skills' },
+  { icon: Layers, text: 'Understand database design and management' },
+  { icon: LineChart, text: 'Learn data analysis and visualization techniques' },
+  { icon: BadgeCheck, text: 'Get certified and boost your career prospects' },
 ];
 
 const courseIncludes = [
-  {
-    icon: Video,
-    text: '40+ hours of on-demand video',
-  },
-  {
-    icon: FileText,
-    text: '50+ articles and resources',
-  },
-  {
-    icon: InfinityIcon,
-    text: 'Full lifetime access',
-  },
-  {
-    icon: Monitor,
-    text: 'Access on mobile and desktop',
-  },
-  {
-    icon: Award,
-    text: 'Certificate of completion',
-  },
+  { icon: Video, text: '40+ hours of on-demand video' },
+  { icon: FileText, text: '50+ articles and resources' },
+  { icon: InfinityIcon, text: 'Full lifetime access' },
+  { icon: Monitor, text: 'Access on mobile and desktop' },
+  { icon: Award, text: 'Certificate of completion' },
 ];
 
 export default function CourseOverview() {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault();
-    const href = e.currentTarget.href;
-    const targetId = href.replace(/.*#/, '');
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <section
-      id="overview"
-      className="w-full py-16 md:py-24 lg:py-32 bg-muted/20"
-    >
+    <section id="overview" className="relative w-full py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-3 lg:gap-8">
-          <div className="lg:col-span-2">
-            <MotionDiv animation="fade-in">
-              <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl mb-6">
-                Python & SQL: From Zero to Hero
-              </h2>
-            </MotionDiv>
-            <MotionDiv animation="fade-in" delay={0.2}>
-              <Card className="shadow-lg">
-                <CardHeader>
-                  <CardTitle className="font-headline text-2xl">What you'll learn</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-foreground/90">
-                    {whatYouWillLearn.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>{item}</span>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] lg:gap-14">
+          <div>
+            <SectionHeading
+              align="left"
+              eyebrow="Course overview"
+              title={
+                <>
+                  Python &amp; SQL: <span className="text-gradient">From Zero to Hero</span>
+                </>
+              }
+              description="Go beyond theory. This course is meticulously crafted for deep understanding through hands-on practice. You'll work with real-world scenarios, build a solid foundation in both Python and SQL, and master advanced query-writing and programming skills. By the end, you'll have a portfolio of projects to prove your expertise."
+            />
+
+            <h3 className="mt-12 font-headline text-lg font-semibold">What you&apos;ll learn</h3>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {whatYouWillLearn.map(({ icon: Icon, text }, index) => (
+                <MotionDiv key={text} delay={index * 0.05}>
+                  <div className="surface surface-hover flex h-full items-start gap-4 p-5">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/25 to-accent/10 text-primary ring-1 ring-inset ring-primary/20">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="pt-2 text-[15px] leading-snug text-foreground/90">{text}</span>
+                  </div>
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+
+          <MotionDiv animation="slide-in" delay={0.15} className="lg:sticky lg:top-24 lg:self-start">
+            <div className="gradient-border relative overflow-hidden rounded-3xl bg-card shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/30 blur-3xl" aria-hidden="true" />
+              <div className="relative p-7">
+                <div className="flex items-center justify-between">
+                  <span className="font-code text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                    Limited offer
+                  </span>
+                  <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-bold text-emerald-300 ring-1 ring-inset ring-emerald-400/30">
+                    50% OFF
+                  </span>
+                </div>
+                <div className="mt-5 flex items-end gap-3">
+                  <span className="font-headline text-5xl font-extrabold tracking-tight">₹3,999</span>
+                  <span className="mb-1.5 text-lg text-muted-foreground line-through">₹7,999</span>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">for each course · INR</p>
+
+                <Button asChild size="lg" className="mt-7 w-full">
+                  <a href="#contact">
+                    Enroll Now <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+
+                <div className="mt-8 border-t border-white/[0.07] pt-6">
+                  <h3 className="text-sm font-semibold">This course includes</h3>
+                  <ul className="mt-4 space-y-3 text-sm text-foreground/85">
+                    {courseIncludes.map(({ icon: Icon, text }) => (
+                      <li key={text} className="flex items-center gap-3">
+                        <Icon className="h-4 w-4 shrink-0 text-accent" />
+                        <span>{text}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-            </MotionDiv>
-            <MotionDiv animation="fade-in" delay={0.4} className="mt-8">
-                <h3 className="font-headline text-2xl font-bold">Course Description</h3>
-                <p className="mt-4 text-foreground/80 leading-relaxed">
-                    Go beyond theory. This course is meticulously crafted for deep
-                    understanding through hands-on practice. You'll work with
-                    real-world scenarios, build a solid foundation in both Python and SQL, and master
-                    advanced query-writing and programming skills. By the end, you'll have a portfolio of projects to prove your expertise.
-                </p>
-            </MotionDiv>
-          </div>
-
-          <div className="lg:col-span-1 mt-8 lg:mt-0">
-            <MotionDiv animation="slide-in" delay={0.3} className="lg:sticky lg:top-24">
-              <Card className="overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:shadow-accent/20 hover:-translate-y-1">
-                <CardHeader className="p-0">
-                  <div className="bg-primary p-6 text-primary-foreground">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-baseline gap-3">
-                        <span className="text-4xl font-bold">INR 3999</span>
-                        <span className="text-xl font-medium text-primary-foreground/80 line-through">INR 7999</span>
-                      </div>
-                      <div className="text-lg font-bold bg-white/20 text-primary-foreground px-3 py-1.5 rounded-md">50% OFF</div>
-                    </div>
-                     <div className="font-semibold text-primary-foreground/90">
-                      <span>for each course</span>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <Button asChild className="w-full text-lg font-bold h-12 transition-transform duration-300 ease-in-out hover:scale-105">
-                    <a href="#contact" onClick={handleScroll}>Enroll Now</a>
-                  </Button>
-                  <div className="mt-6">
-                    <h3 className="font-headline text-lg font-semibold mb-4">This course includes:</h3>
-                    <ul className="space-y-3 text-foreground/90">
-                        {courseIncludes.map((item, index) => (
-                            <li key={index} className="flex items-center gap-3">
-                                <item.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                                <span>{item.text}</span>
-                            </li>
-                        ))}
-                    </ul>
-                  </div>
-                </CardContent>
-                <CardFooter className="bg-muted/50 p-4 text-center">
-                    <p className="text-sm text-foreground/70">Get a certificate of completion and boost your resume!</p>
-                </CardFooter>
-              </Card>
-            </MotionDiv>
-          </div>
+                </div>
+              </div>
+              <div className="relative flex items-center gap-2 border-t border-white/[0.07] bg-white/[0.02] px-7 py-4 text-sm text-muted-foreground">
+                <Check className="h-4 w-4 text-emerald-300" />
+                Get a certificate of completion and boost your resume!
+              </div>
+            </div>
+          </MotionDiv>
         </div>
       </div>
     </section>

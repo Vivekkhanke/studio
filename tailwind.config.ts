@@ -11,9 +11,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['PT Sans', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
-        code: ['monospace'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        headline: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        code: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -111,6 +111,14 @@ export default {
               opacity: '1',
           },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
         'pulse-glow': {
           '0%, 100%': {
             boxShadow: '0 0 5px 0px hsl(var(--primary) / 0.5)',
@@ -127,6 +135,8 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease-out both',
         'fade-in': 'fade-in 0.5s ease-out both',
         'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+        float: 'float 6s ease-in-out infinite',
+        blink: 'blink 1s step-end infinite',
       },
     },
   },

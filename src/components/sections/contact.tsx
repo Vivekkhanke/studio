@@ -27,7 +27,15 @@ import {
 } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
+import MotionDiv from "@/components/ui/motion-div"
+import SectionHeading from "@/components/ui/section-heading"
 import { useState } from "react"
+
+const contactItems = [
+  { icon: Mail, label: "Email", value: "beginnertoproplus@gmail.com", href: "mailto:beginnertoproplus@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+91 91303 67814", href: "tel:+919130367814" },
+  { icon: Clock, label: "Support hours", value: "Monday - Friday: 10:00 AM - 6:00 PM" },
+]
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -89,52 +97,50 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full bg-background py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="relative w-full overflow-hidden py-24 md:py-32">
+      <div className="absolute -left-40 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-primary/15 blur-[140px]" aria-hidden="true" />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           {/* Contact Information */}
-          <div className="space-y-10 animate-fade-in-up">
-            <div>
-              <h2 className="font-headline text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Interested in the Course? Register for More Information.
-              </h2>
-            </div>
-            <div className="space-y-8">
-              <a href="mailto:beginnertoproplus@gmail.com" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
-                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
-                  <Mail className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Email</h3>
-                  <p className="text-white/80 text-lg">beginnertoproplus@gmail.com</p>
-                </div>
-              </a>
-              <a href="tel:+919130367814" className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
-                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
-                  <Phone className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Phone</h3>
-                  <p className="text-white/80 text-lg">Click to call</p>
-                </div>
-              </a>
-              <div className="group flex items-center gap-5 p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md">
-                <div className="bg-primary/10 p-4 rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
-                  <Clock className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-2xl group-hover:text-white transition-colors">Support Hours</h3>
-                  <p className="text-white/80 text-lg">Monday - Friday: 10:00 AM - 6:00 PM</p>
-                </div>
-              </div>
+          <div className="flex flex-col">
+            <SectionHeading
+              align="left"
+              eyebrow="Get in touch"
+              title={<>Interested in the course? <span className="text-gradient">Register for more information.</span></>}
+              description="Fill in the form and we'll get back to you shortly."
+            />
+            <div className="mt-10 space-y-3">
+              {contactItems.map(({ icon: Icon, label, value, href }) => {
+                const content = (
+                  <>
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary ring-1 ring-inset ring-primary/25 transition-transform duration-300 group-hover:scale-105">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-code text-[11px] uppercase tracking-[0.16em] text-muted-foreground">{label}</span>
+                      <span className="mt-0.5 block truncate font-medium text-foreground">{value}</span>
+                    </span>
+                  </>
+                )
+                return href ? (
+                  <a key={label} href={href} className="surface surface-hover group flex items-center gap-4 p-4">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={label} className="surface group flex items-center gap-4 p-4">
+                    {content}
+                  </div>
+                )
+              })}
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <Card className="h-full p-8 shadow-xl bg-card/50 border-2 border-primary/10">
+          <MotionDiv delay={0.1}>
+            <Card className="gradient-border h-full rounded-3xl border-0 bg-card/90 p-6 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.45)] sm:p-8">
               <CardContent className="p-0">
-                <h2 className="font-headline text-3xl font-bold text-white mb-8">Register Here</h2>
+                <h2 className="font-headline text-2xl font-bold">Register here</h2>
+                <p className="mt-1 mb-8 text-sm text-muted-foreground">All fields are required.</p>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
@@ -220,7 +226,7 @@ export default function Contact() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" size="lg" className="w-full transition-transform duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100 font-bold text-lg" disabled={isSubmitting}>
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                       {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
                       {isSubmitting ? 'Registering...' : 'Register'}
                     </Button>
@@ -228,7 +234,7 @@ export default function Contact() {
                 </Form>
               </CardContent>
             </Card>
-          </div>
+          </MotionDiv>
         </div>
       </div>
     </section>

@@ -1,12 +1,13 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, ChevronDown, ArrowRight } from "lucide-react"
 
+import { cn } from "@/lib/utils"
+import { navLinks, courseLinks } from "@/lib/site"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
-import { Logo } from "@/components/ui/logo"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import { Brand } from "@/components/ui/logo"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,189 +20,147 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = React.useState(ids[0])
 
-const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#overview", label: "Overview" },
-  { href: "#curriculum", label: "Curriculum" },
-  { href: "#project", label: "Project" },
-  { href: "#instructor", label: "Instructor" },
-  { href: "#contact", label: "Contact" },
-]
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [ids])
 
-const courseLinks = [
-    { href: "#", label: "Oracle SQL/PLSQL" },
-    { href: "#", label: "Python" },
-    { href: "#", label: "JAVA" },
-    { href: "#", label: "Software Testing - Payments/Banking" },
-]
+  return active
+}
 
+const sectionIds = navLinks.map((link) => link.href.slice(1))
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = React.useState(false)
-  const [open, setOpen] = React.useState(false);
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const href = e.currentTarget.href;
-    const targetId = href.replace(/.*#/, "");
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-    // Close the sheet if it's open
-    if (open) {
-      setOpen(false);
-    }
-  };
+  const [open, setOpen] = React.useState(false)
+  const active = useActiveSection(sectionIds)
 
   React.useEffect(() => {
-    setIsMounted(true);
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 24)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-  
-  if (!isMounted) {
-    return (
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300`}>
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
-            <Logo />
-            <div className="flex flex-col">
-              <span>BeginnerToPro+</span>
-              <span className="text-xs font-light tracking-widest">Online Classes</span>
-            </div>
-          </Link>
-          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} onClick={handleScrollTo} className="text-foreground/80 transition-colors hover:text-primary">
-                {link.label}
-              </Link>
-            ))}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary focus:outline-none">
-                Courses <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {courseLinks.map((link) => (
-                  <DropdownMenuItem key={link.label} asChild>
-                    <Link href={link.href}>{link.label}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
-          <div className="hidden items-center gap-2 md:flex">
-            <Button asChild>
-              <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
-            </Button>
-          </div>
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </div>
-        </div>
-      </header>
-    );
-  }
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-card/80 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
-          <Logo />
-          <div className="flex flex-col">
-            <span>BeginnerToPro+</span>
-            <span className="text-xs font-light tracking-widest">Online Classes</span>
-          </div>
-        </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={handleScrollTo} className="text-foreground/80 transition-colors hover:text-primary">
-              {link.label}
-            </Link>
-          ))}
-           <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary focus:outline-none">
-                Courses <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {courseLinks.map((link) => (
-                  <DropdownMenuItem key={link.label} asChild>
-                    <Link href={link.href}>{link.label}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+    <header className="sticky top-0 z-40 w-full px-3 pt-3">
+      <div
+        className={cn(
+          "mx-auto flex h-14 max-w-6xl items-center justify-between rounded-full border pl-4 pr-2 transition-all duration-300",
+          isScrolled
+            ? "border-white/10 bg-background/75 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        )}
+      >
+        <a href="#home" aria-label="BeginnerToPro+ home">
+          <Brand />
+        </a>
+
+        <nav className="hidden items-center gap-1 text-sm font-medium lg:flex" aria-label="Main">
+          {navLinks.map((link) => {
+            const isActive = active === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "true" : undefined}
+                className={cn(
+                  "rounded-full px-3.5 py-2 transition-colors",
+                  isActive
+                    ? "bg-white/[0.08] text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {link.label}
+              </a>
+            )
+          })}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 rounded-full px-3.5 py-2 text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=open]:text-foreground">
+              Courses <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[260px] rounded-xl border-white/10 bg-card/95 p-1.5 backdrop-blur-xl">
+              {courseLinks.map((link) => (
+                <DropdownMenuItem key={link.label} asChild className="cursor-pointer rounded-lg px-3 py-2.5">
+                  <a href={link.href}>{link.label}</a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
-        <div className="hidden items-center gap-2 md:flex">
-          <Button asChild className="transition-transform duration-300 ease-in-out hover:scale-105">
-            <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
+
+        <div className="flex items-center gap-1">
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <a href="#contact">
+              Enroll Now <ArrowRight className="h-4 w-4" />
+            </a>
           </Button>
-        </div>
-        <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
+              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
+                <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-card">
-              <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b p-4">
-                  <Link href="#home" onClick={handleScrollTo} className="flex items-center gap-2 font-headline text-lg font-semibold text-white">
-                    <Logo />
-                    <div className="flex flex-col">
-                      <span>BeginnerToPro+</span>
-                      <span className="text-xs font-light tracking-widest">Online Classes</span>
-                    </div>
-                  </Link>
-                  <SheetClose asChild>
-                      <Button variant="ghost" size="icon">
-                        <X className="h-6 w-6" />
-                      </Button>
+            <SheetContent side="right" className="flex w-[300px] flex-col border-white/10 bg-card p-0">
+              <div className="border-b border-white/10 p-5">
+                <SheetTitle className="sr-only">Menu</SheetTitle>
+                <Brand />
+              </div>
+              <nav className="flex flex-1 flex-col gap-1 overflow-y-auto p-3" aria-label="Mobile">
+                {navLinks.map((link) => (
+                  <SheetClose key={link.href} asChild>
+                    <a
+                      href={link.href}
+                      className={cn(
+                        "rounded-xl px-4 py-3 text-base transition-colors",
+                        active === link.href.slice(1)
+                          ? "bg-white/[0.07] text-foreground"
+                          : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
+                      )}
+                    >
+                      {link.label}
+                    </a>
                   </SheetClose>
-                </div>
-                <nav className="flex flex-1 flex-col gap-4 p-4">
-                  {navLinks.map((link) => (
-                    <SheetClose key={link.href} asChild>
-                      <Link href={link.href} onClick={handleScrollTo} className="text-lg text-foreground/80 transition-colors hover:text-primary">
-                        {link.label}
-                      </Link>
-                    </SheetClose>
-                  ))}
-                  <Collapsible>
-                    <CollapsibleTrigger className="flex items-center justify-between w-full text-lg text-foreground/80 transition-colors hover:text-primary">
-                      Courses <ChevronDown className="h-4 w-4" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="pl-4">
-                      {courseLinks.map((link) => (
-                        <SheetClose key={link.label} asChild>
-                          <Link href={link.href} onClick={handleScrollTo} className="block py-2 text-lg text-foreground/80 transition-colors hover:text-primary">
-                            {link.label}
-                          </Link>
-                        </SheetClose>
-                      ))}
-                    </CollapsibleContent>
-                  </Collapsible>
-                </nav>
-                <div className="mt-auto flex flex-col gap-2 border-t p-4">
-                  <SheetClose asChild>
-                    <Button asChild size="lg" className="transition-transform duration-300 ease-in-out hover:scale-105">
-                      <Link href="#contact" onClick={handleScrollTo}>Enroll Now</Link>
-                    </Button>
-                  </SheetClose>
-                </div>
+                ))}
+                <Collapsible>
+                  <CollapsibleTrigger className="group flex w-full items-center justify-between rounded-xl px-4 py-3 text-base text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-foreground">
+                    Courses
+                    <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="ml-4 border-l border-white/10 pl-2">
+                    {courseLinks.map((link) => (
+                      <SheetClose key={link.label} asChild>
+                        <a
+                          href={link.href}
+                          className="block rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {link.label}
+                        </a>
+                      </SheetClose>
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
+              </nav>
+              <div className="border-t border-white/10 p-4">
+                <SheetClose asChild>
+                  <Button asChild size="lg" className="w-full">
+                    <a href="#contact">Enroll Now</a>
+                  </Button>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>

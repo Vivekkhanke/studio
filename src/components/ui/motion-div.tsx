@@ -1,12 +1,12 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 
 interface MotionDivProps {
   children: React.ReactNode;
   className?: string;
-  animation: 'slide-in' | 'fade-in' | 'zoom-in';
+  animation?: 'slide-in' | 'fade-in' | 'fade-in-up' | 'zoom-in';
   delay?: number;
   duration?: number;
 }
@@ -14,25 +14,27 @@ interface MotionDivProps {
 export default function MotionDiv({
   children,
   className,
-  animation,
-  delay = 0.2,
-  duration = 0.5,
+  animation = 'fade-in-up',
+  delay = 0,
+  duration = 0.6,
 }: MotionDivProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const reduceMotion = useReducedMotion();
 
   const variants = {
     hidden: {
       opacity: 0,
-      y: animation === 'slide-in' ? 50 : 0,
-      x: 0,
-      scale: animation === 'zoom-in' ? 0.8 : 1,
+      y: reduceMotion ? 0 : animation === 'slide-in' ? 40 : animation === 'fade-in-up' ? 24 : 0,
+      scale: animation === 'zoom-in' && !reduceMotion ? 0.94 : 1,
+      filter: reduceMotion ? 'blur(0px)' : 'blur(8px)',
     },
     visible: {
       opacity: 1,
       y: 0,
-      x: 0,
       scale: 1,
+      filter: 'blur(0px)',
+      transitionEnd: { filter: 'none' },
     },
   };
 
@@ -43,7 +45,7 @@ export default function MotionDiv({
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{ duration, delay }}
+      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

@@ -1,6 +1,7 @@
-
 "use client"
 
+import * as React from "react"
+import { Briefcase, Check, ChevronDown, Coffee, Database, Target, Terminal } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +9,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import MotionDiv from "@/components/ui/motion-div";
+import { Button } from "@/components/ui/button"
+import MotionDiv from "@/components/ui/motion-div"
+import SectionHeading from "@/components/ui/section-heading"
+
+type CurriculumModule = {
+  emoji: string
+  title: string
+  content: {
+    learn: string[]
+    realWorld: string[]
+    outcome: string
+  }
+}
 
 const sqlCurriculum = [
     {
@@ -816,123 +829,131 @@ const javaCurriculum = [
 ];
 
 
+const paths = [
+  { value: "sql", label: "SQL", icon: Database, data: sqlCurriculum, blurb: "From your first SELECT to joins, subqueries, optimization and real reporting." },
+  { value: "python", label: "Python", icon: Terminal, data: pythonCurriculum, blurb: "Core programming, data structures and data analysis for practical automation." },
+  { value: "java", label: "Java", icon: Coffee, data: javaCurriculum, blurb: "Core Java, OOP, collections and Java 8 features, capped with a full project." },
+]
+
+const INITIAL_VISIBLE = 6
+
 export default function Curriculum() {
   return (
-    <section id="curriculum" className="w-full bg-muted/30 py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section id="curriculum" className="relative w-full border-y border-white/[0.05] bg-white/[0.015] py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <MotionDiv animation="fade-in-up">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-              📘 Comprehensive Learning Paths
-            </h2>
-            <p className="mt-4 text-lg text-foreground/80">
-              Step-by-step curriculum designed to take you from novice to job-ready in 30 days.
-            </p>
-          </div>
-        </MotionDiv>
+        <SectionHeading
+          eyebrow="Curriculum"
+          title={<>Comprehensive <span className="text-gradient">learning paths</span></>}
+          description="Step-by-step curriculum designed to take you from novice to job-ready in 30 days."
+        />
 
-        <div className="mt-12 mx-auto max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <MotionDiv delay={0.1} className="mx-auto mt-12 max-w-4xl">
           <Tabs defaultValue="sql" className="w-full">
-            <div className="flex justify-center mb-10">
-              <TabsList className="grid w-full max-w-md grid-cols-3 h-14 p-1.5 bg-card/50 rounded-xl border-2 border-primary/20 shadow-inner">
-                <TabsTrigger 
-                  value="sql" 
-                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
+            <TabsList className="mx-auto grid h-auto w-full max-w-lg grid-cols-3 gap-1 rounded-2xl border border-white/[0.07] bg-card/80 p-1.5">
+              {paths.map(({ value, label, icon: Icon, data }) => (
+                <TabsTrigger
+                  key={value}
+                  value={value}
+                  className="flex flex-col gap-0.5 rounded-xl py-2.5 text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.8)] sm:flex-row sm:gap-2"
                 >
-                  SQL Path
+                  <Icon className="h-4 w-4" />
+                  <span className="font-semibold">{label}</span>
+                  <span className="hidden font-code text-[11px] opacity-70 sm:inline">{data.length}</span>
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="python" 
-                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
-                >
-                  Python Path
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="java" 
-                  className="rounded-lg text-lg font-bold transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:bg-primary/5"
-                >
-                  Java Path
-                </TabsTrigger>
-              </TabsList>
-            </div>
+              ))}
+            </TabsList>
 
-            <TabsContent value="sql" className="animate-fade-in focus-visible:outline-none">
-              <CurriculumAccordion data={sqlCurriculum} label="View Full SQL Curriculum" />
-            </TabsContent>
-
-            <TabsContent value="python" className="animate-fade-in focus-visible:outline-none">
-              <CurriculumAccordion data={pythonCurriculum} label="View Full Python Curriculum" />
-            </TabsContent>
-
-            <TabsContent value="java" className="animate-fade-in focus-visible:outline-none">
-              <CurriculumAccordion data={javaCurriculum} label="View Full Java Curriculum" />
-            </TabsContent>
+            {paths.map((path) => (
+              <TabsContent key={path.value} value={path.value} className="mt-10 animate-fade-in focus-visible:outline-none">
+                <div className="mb-5 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+                  <p className="max-w-lg text-sm text-muted-foreground">{path.blurb}</p>
+                  <span className="font-code text-xs uppercase tracking-widest text-accent">
+                    {path.data.length} modules
+                  </span>
+                </div>
+                <ModuleList data={path.data} />
+              </TabsContent>
+            ))}
           </Tabs>
-        </div>
+        </MotionDiv>
       </div>
     </section>
   )
 }
 
-function CurriculumAccordion({ data, label }: { data: any[], label: string }) {
+function ModuleList({ data }: { data: CurriculumModule[] }) {
+  const [showAll, setShowAll] = React.useState(false)
+  const visible = showAll ? data : data.slice(0, INITIAL_VISIBLE)
+
   return (
-    <Accordion type="single" collapsible className="w-full rounded-xl border bg-card p-2 shadow-sm transition-all duration-300 hover:shadow-xl">
-      <AccordionItem value="full-curriculum" className="border-b-0">
-        <AccordionTrigger className="py-5 px-4 text-left text-xl font-bold transition-all hover:no-underline group data-[state=open]:border-b">
-          <span className="flex items-center gap-4 text-primary">
-            <span className="text-2xl transition-transform duration-300 group-hover:rotate-6">📚</span>
-            {label}
-          </span>
-        </AccordionTrigger>
-        <AccordionContent className="overflow-hidden text-base transition-all">
-          <div className="pt-6 px-2">
-            <Accordion type="multiple" className="w-full space-y-3">
-              {data.map((item, index) => (
-                <div key={index} className="transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-0.5 rounded-lg border bg-background/50">
-                  <AccordionItem value={`item-${index}`} className="border-b-0">
-                    <AccordionTrigger className="py-4 px-5 text-left font-semibold transition-all hover:no-underline group">
-                      <h3 className="flex w-full items-center gap-4 text-lg text-left">
-                        <span className="text-2xl transition-transform duration-300 group-hover:scale-110">{item.emoji}</span>
-                        <span className="group-hover:text-primary transition-colors">{item.title}</span>
-                      </h3>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="space-y-4 pt-4 pb-5 px-5 border-t animate-fade-in bg-muted/10">
-                        <div>
-                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">What you will learn</h4>
-                          <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none text-foreground/80 text-sm">
-                            {item.content.learn.map((point: string, i: number) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <span className="text-accent mt-0.5">●</span>
-                                {point}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pt-2 border-t border-dashed">
-                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">Real-World Examples</h4>
-                          <ul className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none text-foreground/80 text-sm">
-                            {item.content.realWorld.map((point: string, i: number) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <span className="text-accent mt-0.5">●</span>
-                                {point}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pt-2 border-t border-dashed">
-                          <h4 className="font-bold text-primary text-sm uppercase tracking-wider">Outcome</h4>
-                          <p className="mt-2 text-foreground/80 text-sm italic">{item.content.outcome}</p>
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
+    <>
+      <Accordion type="multiple" defaultValue={["item-0"]} className="space-y-3">
+        {visible.map((item, index) => {
+          const match = item.title.match(/^Module\s*(\d+):\s*(.*)$/)
+          const number = match ? match[1] : String(index + 1)
+          const name = match ? match[2] : item.title
+          return (
+            <AccordionItem
+              key={item.title}
+              value={`item-${index}`}
+              className="surface overflow-hidden border-b-0 transition-colors data-[state=open]:border-primary/30 data-[state=open]:bg-card"
+            >
+              <AccordionTrigger className="group gap-4 px-5 py-4 text-left hover:no-underline">
+                <span className="flex flex-1 items-center gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] font-code text-sm text-muted-foreground transition-colors group-data-[state=open]:border-primary/40 group-data-[state=open]:bg-primary/15 group-data-[state=open]:text-primary">
+                    {number.padStart(2, "0")}
+                  </span>
+                  <span className="font-headline text-base font-semibold text-foreground/90 transition-colors group-hover:text-foreground md:text-lg">
+                    {name}
+                  </span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid gap-6 border-t border-white/[0.06] px-5 pb-6 pt-5 md:grid-cols-2 md:pl-[4.75rem]">
+                  <div>
+                    <h4 className="font-code text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">What you will learn</h4>
+                    <ul className="mt-3 space-y-2 text-sm text-foreground/85">
+                      {item.content.learn.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-code text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">Real-world examples</h4>
+                    <ul className="mt-3 space-y-2 text-sm text-foreground/85">
+                      {item.content.realWorld.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5">
+                          <Briefcase className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/[0.06] p-4 md:col-span-2">
+                    <Target className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <p className="text-sm text-foreground/85">
+                      <span className="font-semibold text-primary">Outcome: </span>
+                      {item.content.outcome}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </Accordion>
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+              </AccordionContent>
+            </AccordionItem>
+          )
+        })}
+      </Accordion>
+
+      {data.length > INITIAL_VISIBLE && (
+        <div className="mt-6 flex justify-center">
+          <Button variant="outline" onClick={() => setShowAll((v) => !v)} aria-expanded={showAll}>
+            {showAll ? "Show fewer modules" : `Show all ${data.length} modules`}
+            <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} />
+          </Button>
+        </div>
+      )}
+    </>
   )
 }
