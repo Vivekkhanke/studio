@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
           <Sparkles className="h-3 w-3" />
           New batch
         </span>
-        <span className="truncate">Upcoming batches update — Batch starts from 1st Aug</span>
+        <span className="truncate">Upcoming batches update — Batch starts from 1st Oct</span>
         <span className="inline-flex shrink-0 items-center gap-1 font-semibold">
           Enroll now
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
