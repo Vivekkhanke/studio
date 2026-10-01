@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Phone, PlayCircle, Rocket, Medal, Gem, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MotionDiv from '@/components/ui/motion-div';
@@ -79,23 +78,11 @@ const stats = [
 
 function CodeWindow() {
   const [active, setActive] = React.useState(0);
-  const [paused, setPaused] = React.useState(false);
-  const reduceMotion = useReducedMotion();
-
-  React.useEffect(() => {
-    if (paused || reduceMotion) return;
-    const timer = setInterval(() => setActive((i) => (i + 1) % snippets.length), 3500);
-    return () => clearInterval(timer);
-  }, [paused, reduceMotion]);
 
   const snippet = snippets[active];
 
   return (
-    <div
-      className="surface gradient-border relative overflow-hidden rounded-2xl bg-card/80 shadow-[0_40px_120px_-40px_hsl(var(--primary)/0.55)]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <div className="surface gradient-border relative overflow-hidden rounded-2xl bg-card/80 shadow-[0_40px_120px_-40px_hsl(var(--primary)/0.55)]">
       <div className="flex items-center gap-4 border-b border-white/[0.07] px-4 py-3">
         <div className="flex gap-1.5" aria-hidden="true">
           <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
@@ -123,15 +110,7 @@ function CodeWindow() {
       </div>
 
       <div className="relative min-h-[244px] px-4 py-5 font-code text-[12.5px] leading-6 sm:text-[13px]">
-        <AnimatePresence mode="wait">
-          <motion.pre
-            key={snippet.id}
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -3 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="overflow-x-auto"
-          >
+          <pre className="overflow-x-auto">
             <code>
               {snippet.lines.map((line, i) => (
                 <div key={i} className="flex">
@@ -147,25 +126,15 @@ function CodeWindow() {
                 </div>
               ))}
             </code>
-          </motion.pre>
-        </AnimatePresence>
+          </pre>
       </div>
 
       <div className="flex items-center gap-2 border-t border-white/[0.07] bg-black/20 px-4 py-2.5 font-code text-xs text-muted-foreground">
         <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_2px_rgba(52,211,153,0.5)]" />
         <span className="text-emerald-300/90">✓</span>
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={snippet.id}
-            aria-live="polite"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.16, ease: 'easeOut' }}
-          >
+          <span aria-live="polite">
             {snippet.output}
-          </motion.span>
-        </AnimatePresence>
+          </span>
       </div>
     </div>
   );

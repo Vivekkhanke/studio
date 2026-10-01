@@ -89,7 +89,6 @@
   .surface-hover {
     @apply relative transition-all duration-150 hover:-translate-y-1 hover:border-primary/30 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--primary)/0.45)];
   }
-  /* Cursor-following spotlight; --mx/--my are set by <ScrollProgress /> */
   .surface-hover::after {
     content: '';
     position: absolute;
@@ -102,18 +101,6 @@
   }
   .surface-hover:hover::after {
     opacity: 1;
-  }
-
-  .marquee-track {
-    animation: marquee-x 40s linear infinite;
-  }
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-  @keyframes marquee-x {
-    to {
-      transform: translateX(-50%);
-    }
   }
 
   /* 1px gradient outline using a masked pseudo-element */
@@ -136,4 +123,12 @@
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 font-code text-xs font-medium uppercase tracking-[0.14em] text-primary;
   }
+}
+
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
 }

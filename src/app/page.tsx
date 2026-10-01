@@ -11,12 +11,10 @@ import Contact from '@/components/sections/contact';
 import Footer from '@/components/sections/footer';
 import TechMarquee from '@/components/sections/tech-marquee';
 import Journey from '@/components/sections/journey';
-import { ScrollProgress } from '@/components/ui/motion-effects';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <ScrollProgress />
       <AnnouncementBar />
       <Navigation />
       <main className="flex-1">

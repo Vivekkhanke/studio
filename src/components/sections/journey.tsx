@@ -1,7 +1,5 @@
 'use client';
 
-import * as React from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
 import { BookOpen, Dumbbell, FolderGit2, Mic } from 'lucide-react';
 import SectionHeading from '@/components/ui/section-heading';
 import MotionDiv from '@/components/ui/motion-div';
@@ -34,10 +32,6 @@ const steps = [
 ];
 
 export default function Journey() {
-  const ref = React.useRef<HTMLOListElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 75%', 'end 60%'] });
-  const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
-
   return (
     <section id="journey" className="relative w-full py-24 md:py-32">
       <div className="container mx-auto grid grid-cols-1 gap-14 px-4 md:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -50,13 +44,9 @@ export default function Journey() {
           />
         </div>
 
-        <ol ref={ref} className="relative space-y-6 pl-14 md:pl-16">
+        <ol className="relative space-y-6 pl-14 md:pl-16">
           <span className="absolute bottom-3 left-[19px] top-3 w-px bg-white/10 md:left-[23px]" aria-hidden="true" />
-          <motion.span
-            style={{ scaleY }}
-            className="absolute bottom-3 left-[19px] top-3 w-px origin-top bg-gradient-to-b from-primary via-[hsl(var(--glow))] to-accent md:left-[23px]"
-            aria-hidden="true"
-          />
+          <span className="absolute bottom-3 left-[19px] top-3 w-px bg-gradient-to-b from-primary via-[hsl(var(--glow))] to-accent md:left-[23px]" aria-hidden="true" />
           {steps.map((step, index) => (
             <li key={step.title} className="relative">
               <MotionDiv delay={index * 0.05}>
