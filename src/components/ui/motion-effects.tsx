@@ -10,15 +10,31 @@ export function ScrollProgress() {
 
   // Feed pointer position to any `.surface-hover` card so its spotlight follows the cursor.
   React.useEffect(() => {
-    const onMove = (e: PointerEvent) => {
-      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.surface-hover');
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    let frame = 0;
+    let latestEvent: PointerEvent | null = null;
+
+    const onMove = (event: PointerEvent) => {
+      latestEvent = event;
+      if (frame) return;
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const pointerEvent = latestEvent;
+        latestEvent = null;
+        const card = (pointerEvent?.target as HTMLElement | null)?.closest<HTMLElement>('.surface-hover');
+        if (!card || !pointerEvent) return;
+
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${pointerEvent.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${pointerEvent.clientY - rect.top}px`);
+      });
     };
+
     window.addEventListener('pointermove', onMove, { passive: true });
-    return () => window.removeEventListener('pointermove', onMove);
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -44,7 +60,7 @@ export function CountUp({ to, decimals = 0, className }: { to: number; decimals?
       return;
     }
     const controls = animate(0, to, {
-      duration: 0.9,
+      duration: 0.55,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => (el.textContent = v.toFixed(decimals)),
     });

@@ -16,7 +16,7 @@ export default function MotionDiv({
   className,
   animation = 'fade-in-up',
   delay = 0,
-  duration = 0.32,
+  duration = 0.18,
 }: MotionDivProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
@@ -42,7 +42,11 @@ export default function MotionDiv({
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{ duration: Math.min(duration, 0.35), delay, ease: 'easeOut' }}
+      transition={{
+        duration: reduceMotion ? 0 : Math.min(duration, 0.2),
+        delay: reduceMotion ? 0 : Math.min(delay, 0.06),
+        ease: 'easeOut',
+      }}
     >
       {children}
     </motion.div>

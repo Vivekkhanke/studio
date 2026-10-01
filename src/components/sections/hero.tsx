@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Phone, PlayCircle, Rocket, Medal, Gem, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MotionDiv from '@/components/ui/motion-div';
@@ -172,26 +172,16 @@ function CodeWindow() {
 }
 
 export default function Hero() {
-  const sectionRef = React.useRef<HTMLElement>(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
-  const range = reduceMotion ? [0, 0] : undefined;
-  const textY = useTransform(scrollYProgress, [0, 1], range ?? [0, 120]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.7], reduceMotion ? [1, 1] : [1, 0]);
-  const codeY = useTransform(scrollYProgress, [0, 1], range ?? [0, -60]);
-  const codeRotate = useTransform(scrollYProgress, [0, 1], range ?? [0, -4]);
-  const glowY = useTransform(scrollYProgress, [0, 1], range ?? [0, 220]);
-
   return (
-    <section ref={sectionRef} id="home" className="relative isolate w-full overflow-hidden pt-16 md:pt-24">
+    <section id="home" className="relative isolate w-full overflow-hidden pt-16 md:pt-24">
       {/* Ambient background */}
       <div className="bg-grid mask-fade absolute inset-0 -z-10" aria-hidden="true" />
-      <motion.div style={{ y: glowY }} className="absolute -top-40 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-primary/25 blur-[140px]" aria-hidden="true" />
-      <motion.div style={{ y: codeY }} className="absolute right-0 top-40 -z-10 h-[360px] w-[360px] rounded-full bg-accent/15 blur-[120px]" aria-hidden="true" />
+      <div className="absolute -top-40 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-primary/25 blur-[140px]" aria-hidden="true" />
+      <div className="absolute right-0 top-40 -z-10 h-[360px] w-[360px] rounded-full bg-accent/15 blur-[120px]" aria-hidden="true" />
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-          <motion.div style={{ y: textY, opacity: textOpacity }} className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <MotionDiv>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1 pl-1.5 pr-3 text-xs text-muted-foreground backdrop-blur">
                 <span className="rounded-full bg-emerald-400/15 px-2 py-0.5 font-medium text-emerald-300">Admissions open</span>
@@ -244,9 +234,9 @@ export default function Hero() {
                 ))}
               </ul>
             </MotionDiv>
-          </motion.div>
+          </div>
 
-          <motion.div style={{ y: codeY, rotate: codeRotate }} className="relative mx-auto w-full max-w-xl [perspective:1200px]">
+          <div className="relative mx-auto w-full max-w-xl [perspective:1200px]">
           <MotionDiv animation="zoom-in" delay={0.2} className="relative">
             <CodeWindow />
             <div className="absolute -bottom-14 right-10 hidden animate-float items-center gap-3 rounded-xl border border-white/10 bg-card/90 px-4 py-3 shadow-2xl backdrop-blur sm:flex">
@@ -262,7 +252,7 @@ export default function Hero() {
               <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" /> 4.9 learner rating
             </div>
           </MotionDiv>
-          </motion.div>
+          </div>
         </div>
 
         <MotionDiv delay={0.35} className="mt-20 md:mt-24">

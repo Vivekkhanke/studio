@@ -87,7 +87,7 @@
   }
 
   .surface-hover {
-    @apply relative transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--primary)/0.45)];
+    @apply relative transition-all duration-150 hover:-translate-y-1 hover:border-primary/30 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--primary)/0.45)];
   }
   /* Cursor-following spotlight; --mx/--my are set by <ScrollProgress /> */
   .surface-hover::after {
@@ -97,7 +97,7 @@
     border-radius: inherit;
     background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), hsl(var(--primary) / 0.14), transparent 45%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.16s;
     pointer-events: none;
   }
   .surface-hover:hover::after {
