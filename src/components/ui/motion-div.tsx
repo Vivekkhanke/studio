@@ -16,25 +16,22 @@ export default function MotionDiv({
   className,
   animation = 'fade-in-up',
   delay = 0,
-  duration = 0.6,
+  duration = 0.32,
 }: MotionDivProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const reduceMotion = useReducedMotion();
 
   const variants = {
     hidden: {
       opacity: 0,
-      y: reduceMotion ? 0 : animation === 'slide-in' ? 40 : animation === 'fade-in-up' ? 24 : 0,
-      scale: animation === 'zoom-in' && !reduceMotion ? 0.94 : 1,
-      filter: reduceMotion ? 'blur(0px)' : 'blur(8px)',
+      y: reduceMotion ? 0 : animation === 'slide-in' ? 24 : animation === 'fade-in-up' ? 12 : 0,
+      scale: animation === 'zoom-in' && !reduceMotion ? 0.98 : 1,
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: 'blur(0px)',
-      transitionEnd: { filter: 'none' },
     },
   };
 
@@ -45,7 +42,7 @@ export default function MotionDiv({
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: Math.min(duration, 0.35), delay, ease: 'easeOut' }}
     >
       {children}
     </motion.div>

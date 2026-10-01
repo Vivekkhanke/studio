@@ -24,11 +24,11 @@ export default function AnimatedHeadlinePremium({ text, className }: AnimatedHea
   };
 
   const wordVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'spring', stiffness: 100 },
+      transition: { duration: 0.18, ease: 'easeOut' },
     },
   };
 

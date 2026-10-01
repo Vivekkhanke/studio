@@ -44,7 +44,7 @@ export function CountUp({ to, decimals = 0, className }: { to: number; decimals?
       return;
     }
     const controls = animate(0, to, {
-      duration: 1.6,
+      duration: 0.9,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => (el.textContent = v.toFixed(decimals)),
     });

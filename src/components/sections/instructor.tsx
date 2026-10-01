@@ -6,13 +6,13 @@ import SectionHeading from "@/components/ui/section-heading"
 const instructors = [
   {
     name: "Vivek Khanke",
-    role: "Data Engineer",
+    role: "Sr. Data Engineer",
     image: "/image.png",
     imageHint: "professional portrait",
     bio: "Vivek is an experienced Data Engineer with expertise in building scalable data pipelines, cloud-based data solutions, and modern data engineering practices. He is passionate about simplifying complex concepts and helping learners build practical, industry-ready skills.",
     highlights: [
       { icon: Briefcase, label: "Developer" },
-      { icon: Star, label: "50+ Students Mentored" },
+      { icon: Star, label: "170+ Students Mentored" },
     ],
     linkedin: "https://www.linkedin.com/in/vivek-khanke/",
   },

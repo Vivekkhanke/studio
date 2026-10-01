@@ -84,7 +84,7 @@ function CodeWindow() {
 
   React.useEffect(() => {
     if (paused || reduceMotion) return;
-    const timer = setInterval(() => setActive((i) => (i + 1) % snippets.length), 4500);
+    const timer = setInterval(() => setActive((i) => (i + 1) % snippets.length), 3500);
     return () => clearInterval(timer);
   }, [paused, reduceMotion]);
 
@@ -126,10 +126,10 @@ function CodeWindow() {
         <AnimatePresence mode="wait">
           <motion.pre
             key={snippet.id}
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 3 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.25 }}
+            exit={{ opacity: 0, y: -3 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
             className="overflow-x-auto"
           >
             <code>
@@ -161,7 +161,7 @@ function CodeWindow() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.16, ease: 'easeOut' }}
           >
             {snippet.output}
           </motion.span>
